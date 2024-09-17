@@ -1,0 +1,71 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: antiquewhite;
+}
+
+h1 { /* Título da Aplicação Web */
+    margin: 0;
+    color: rgb(202, 93, 93);
+    background-color: rgb(255, 225, 186);
+    text-align: center;
+    padding: 10px;
+}
+
+#inputs-position{ /* Definir posição dos botões através de uma div */
+    margin: 10px auto;
+    text-align: center;
+}
+
+#buscar{ /* Input de Botão para Busca */
+    width: 100px;
+    height: 40px;
+    color: rgb(69, 168, 255);
+    background-color: rgb(209, 209, 200);
+    border: 2px solid rgb(209, 209, 200);
+    border-radius: 5px;
+    transition: 0.5s ease-in-out;
+}
+
+#buscar:hover{ /* Hover do Botão de Busca */
+    background-color: rgb(204, 204, 204);
+    transition: 0.5s ease-in-out;
+    width: 150px;
+}
+
+#buscar-países{ /* Input de Texto */
+    width: 350px;
+    height: 35px;
+    border: 1px solid;
+    background-color: rgb(241, 241, 241);
+    border-color: rgb(201, 201, 201);
+    border-radius: 5px;
+}
+
+#buscar-países::placeholder{ /* Placeholder do Input de Texto */
+    color: rgb(138, 138, 138);
+    text-align: center;
+}
+
+.países{ /* Listagem dos Países na Aplicação */
+    max-width: 1240px;
+    margin: 20px auto;
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.pais-info{ /* Informações internas da Listagem dos Países */
+    border: 1px solid rgb(224, 194, 154);
+    background-color: rgb(255, 225, 179);
+    text-align: center;
+    color: rgb(94, 0, 0);
+    padding: 15px;
+}
+
+.bandeiras{ /* Definição de tamanho e posição para as Bandeiras dos Países */
+    width: 250px;
+    height: 150px;
+    margin-top: 5px;
+}
