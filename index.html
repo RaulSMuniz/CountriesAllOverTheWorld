@@ -1,20 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Countries</title>
+    <title>Countries</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <h1>Countries All Over the World</h1>
-    <div id="inputs-position">
+    <h1 id="header">Countries All Over the World</h1>
+    <div id="inputs-position" onmouseenter="mostrarFiltro()" onmouseleave="fecharFiltro()">
+        <div id="container-filtrar">
+            <span id="filtrar">Filtrar</span>
+            <span class="filtrado">Sub-Região</span>
+            <span class="filtrado">Região</span>
+            <span class="filtrado">População</span>
+        </div>
+        <div id="container-ordenacao" onmouseenter="mostrarOrdenacao()" onmouseleave="fecharOrdenacao()">
+            <span id="ordenar">↓ Ordenar por ↓</span>
+            <span class="ordenados" value="nome-pais">Nome do País <br>(a -> z)</span>
+            <span class="ordenados" value="populacao-crescente">População <br>(crescente)</span>
+            <span class="ordenados" value="populacao-decrescente">População <br>(decrescente)</span>
+            <span class="ordenados" value="area-pais-c">Área do País <br>(crescente)</span>
+            <span class="ordenados" value="area-pais-d">Área do País <br>(decrescente)</span>
+        </div>
         <input type="text" id="buscar-países" placeholder="Buscar País">
         <input type="button" value="Buscar" id="buscar">
     </div>
-    
-    <div class="países" id="países">
 
+    <div class="países" id="países">
     </div>
     <script src="js/restfulapi.js"></script>
 </body>
