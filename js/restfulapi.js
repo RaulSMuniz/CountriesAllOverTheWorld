@@ -85,4 +85,5 @@ function fecharOrdenacao() {
         }, 50);
     };
 };
+
 obterRestCountries(); // chama a função inicial para que os dados sejam devidamente distribuídas;
