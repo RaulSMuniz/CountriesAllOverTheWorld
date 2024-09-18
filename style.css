@@ -1,11 +1,14 @@
 body {
+    /* Define a estrutura básica de Body (reset)*/
     box-sizing: border-box;
+    font-family: "Titillium Web", sans-serif;
     margin: 0;
     padding: 0;
     background-color: antiquewhite;
 }
 
-h1 { /* Título da Aplicação Web */
+#header {
+    /* Título da Aplicação Web */
     margin: 0;
     color: rgb(202, 93, 93);
     background-color: rgb(255, 225, 186);
@@ -13,12 +16,119 @@ h1 { /* Título da Aplicação Web */
     padding: 10px;
 }
 
-#inputs-position{ /* Definir posição dos botões através de uma div */
+#ordenar {
+    /* Estiliza o span que contém 'Ordenar Por' */
+    width: 100px;
+    height: 50px;
+    font-size: 16pt;
+    background-color: rgb(231, 224, 224);
+    color: rgb(84, 97, 107);
+    border: 1px 1px 0 1px solid rgb(219, 212, 212);
+    border-radius: 5px 5px 0 0;
+    transition: 0.5s ease-in-out;
+}
+
+#ordenar:hover {
+    /* Estiliza o que ocorrerá quando o usuário passar o mouse por cima de 'Ordenar Por' */
+    background-color: rgb(218, 208, 208);
+    border-color: rgb(179, 166, 166);
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.ordenados {
+    /* Estiliza o conteúdo que aparece ao clicar em 'Ordenar Por' */
+    font-size: 12pt;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    width: 140px;
+    height: 50px;
+    background-color: rgb(231, 224, 224);
+    border: 1px 1px 0 1px solid rgb(110, 96, 96);
+    margin-top: 2px;
+    transition: height 0.5s, background-color 0.5s, opacity 0.5s;
+}
+
+.ordenados:hover {
+    /* Estiliza o que ocorrerá ao passar o mouse por cima 
+    do conteúdo que aparece ao clicar em 'Ordenar Por'
+    */
+    height: 75px;
+    background-color: rgb(218, 208, 208);
+    border-radius: 5px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+#container-ordenacao {
+    /* Estiliza a div que contém 'Ordenar Por' e seus childs */
+    border: 1px solid rgb(180, 180, 180);
+    border-style: none;
+    border-radius: 5px;
+    width: fit-content;
+    padding: 1px;
+    margin: auto 5px;
+}
+
+#container-filtrar {
+    /* Estiliza a div que contém 'Filtrar' e seus childs */
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(180, 180, 180);
+    border-style: none;
+    border-radius: 5px;
+    width: fit-content;
+    padding: 1px;
+    margin: auto 0;
+}
+
+#container-filtrar .filtrado {
+    /* Estiliza o conteúdo que aparece ao clicar em Filtrar */
+    font-size: 12pt;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    width: 140px;
+    height: 50px;
+    background-color: rgb(231, 224, 224);
+    border: 1px 1px 0 1px solid rgb(110, 96, 96);
+    margin-top: 2px;
+    transition: height 0.5s, background-color 0.5s, opacity 0.5s;
+}
+
+#filtrar {
+    /* Estiliza o span que contém 'Filtrar' */
+    width: 100px;
+    height: fit-content;
+    font-size: 16pt;
+    justify-content: center;
+    background-color: rgb(231, 224, 224);
+    color: rgb(84, 97, 107);
+    border: 1px 1px 0 1px solid rgb(219, 212, 212);
+    border-radius: 5px 5px 0 0;
+    transition: 0.5s ease-in-out;
+}
+
+#filtrar:hover {
+    /* Estiliza o que ocorre ao passar o mouse por cima de 'Filtrar' */
+    background-color: rgb(218, 208, 208);
+    border-color: rgb(179, 166, 166);
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+#inputs-position {
+    /* Definir posição dos botões através de uma div */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     margin: 10px auto;
     text-align: center;
 }
 
-#buscar{ /* Input de Botão para Busca */
+#buscar {
+    /* Input de Botão para Busca */
     width: 100px;
     height: 40px;
     color: rgb(69, 168, 255);
@@ -26,29 +136,37 @@ h1 { /* Título da Aplicação Web */
     border: 2px solid rgb(209, 209, 200);
     border-radius: 5px;
     transition: 0.5s ease-in-out;
+    margin-left: 3px;
 }
 
-#buscar:hover{ /* Hover do Botão de Busca */
-    background-color: rgb(204, 204, 204);
+#buscar:hover {
+    /* Hover do Botão de Busca */
+    color: rgb(0, 153, 255);
+    background-color: rgb(190, 190, 190);
+    border-color: rgb(190, 190, 190);
     transition: 0.5s ease-in-out;
-    width: 150px;
+    cursor: pointer;
 }
 
-#buscar-países{ /* Input de Texto */
+#buscar-países {
+    /* Input de Texto */
     width: 350px;
     height: 35px;
     border: 1px solid;
+    font-size: 15px;
     background-color: rgb(241, 241, 241);
     border-color: rgb(201, 201, 201);
     border-radius: 5px;
 }
 
-#buscar-países::placeholder{ /* Placeholder do Input de Texto */
+#buscar-países::placeholder {
+    /* Placeholder do Input de Texto */
     color: rgb(138, 138, 138);
     text-align: center;
 }
 
-.países{ /* Listagem dos Países na Aplicação */
+.países {
+    /* Listagem dos Países na Aplicação */
     max-width: 1240px;
     margin: 20px auto;
     display: grid;
@@ -56,7 +174,8 @@ h1 { /* Título da Aplicação Web */
     grid-template-columns: repeat(3, 1fr);
 }
 
-.pais-info{ /* Informações internas da Listagem dos Países */
+.pais-info {
+    /* Informações internas da Listagem dos Países */
     border: 1px solid rgb(224, 194, 154);
     background-color: rgb(255, 225, 179);
     text-align: center;
@@ -64,7 +183,7 @@ h1 { /* Título da Aplicação Web */
     padding: 15px;
 }
 
-.bandeiras{ /* Definição de tamanho e posição para as Bandeiras dos Países */
+.bandeiras { /* Definição de tamanho e posição para as Bandeiras dos Países */
     width: 250px;
     height: 150px;
     margin-top: 5px;
