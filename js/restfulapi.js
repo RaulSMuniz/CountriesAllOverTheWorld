@@ -13,6 +13,7 @@ const mostrarPaises = paises => {
     Em countryHTML, se reutiliza de paises para percorrer tudo e armazenar as informações na
     variável dita anteriormente (countryHTML);
     */
+    console.log(paises)
     const countryHTML = paises.map(país => obterPaises(país));
     const div = document.getElementById('países'); // Obtém a div em que os países serão inseridos;
     div.innerHTML = countryHTML.join(' '); // Mostra o countryHTML e retira as vírgulas;
@@ -23,7 +24,7 @@ const obterPaises = (país) => { // Cria o HTML com as informações gerais da A
         <div class="pais-info">
             <h2>${país.name.common}</h2>
             <img src='${país.flags.png}' class="bandeiras"></img>
-            <h3>Capital: ${país.capital}</h3>
+            <h3>Capital: ${país.capital ? país.capital : 'None'}</h3>
             <h3>Região: ${país.region}</h3>
         </div>
     `
@@ -85,5 +86,4 @@ function fecharOrdenacao() {
         }, 50);
     };
 };
-
 obterRestCountries(); // chama a função inicial para que os dados sejam devidamente distribuídas;
