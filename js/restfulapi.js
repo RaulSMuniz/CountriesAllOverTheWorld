@@ -25,7 +25,7 @@ const obterPaises = (país) => { // Cria o HTML com as informações gerais da A
             <img src='${país.flags.png}' class="bandeiras"></img>
             <h3>Capital: ${país.capital ? país.capital : 'None'}</h3>
             <h3>Região: ${país.region}</h3>
-            <h3>Sub-região: ${país.subregion ? país.subregion: 'None'}</h3>
+            <h3>Sub-região: ${país.subregion ? país.subregion : 'None'}</h3>
         </div>
     `;
 };
@@ -104,9 +104,9 @@ function mostrarFiltroReg() { // Mostra o menu de regiões (continentes)
         });
     };
 };
-function fecharFiltroReg(){ // Fecha o menu de regiões (continentes)
+function fecharFiltroReg() { // Fecha o menu de regiões (continentes)
     const fechar = document.getElementsByClassName('regioes');
-    for (let i = 0; i < fechar.length; i++){
+    for (let i = 0; i < fechar.length; i++) {
         fechar[i].style.display = 'none';
     }
 };
@@ -183,7 +183,7 @@ function mostrarSubRegioes() { // Função que mostra as sub-regiões existentes
         const mostrar = document.getElementsByClassName('sub-america');
         for (let i = 0; i < mostrar.length; i++) {
             mostrar[i].style.display = 'flex';
-            mostrar[i].addEventListener('click', (event) => { 
+            mostrar[i].addEventListener('click', (event) => {
                 const elementosEU = document.querySelectorAll('.sub-europa');
                 const elementosAM = document.querySelectorAll('.sub-america');
                 const elementosAF = document.querySelectorAll('.sub-africa');
@@ -391,13 +391,13 @@ function filtrarTamanhoPopulacao() { // Função para filtrar por interavalos de
     const valorTamanhoPopulacao = document.querySelector('.tamanho-populacao.selecionado')?.getAttribute('value');
     if (!valorTamanhoPopulacao) return;
 
-    if (valorTamanhoPopulacao === 'menor-1m'){
+    if (valorTamanhoPopulacao === 'menor-1m') {
 
-    } else if (valorTamanhoPopulacao === 'menor-10m'){
+    } else if (valorTamanhoPopulacao === 'menor-10m') {
 
-    } else if (valorTamanhoPopulacao === 'menor-100m'){
+    } else if (valorTamanhoPopulacao === 'menor-100m') {
 
-    } else if (valorTamanhoPopulacao === 'maior-100m'){
+    } else if (valorTamanhoPopulacao === 'maior-100m') {
 
     };
 }
