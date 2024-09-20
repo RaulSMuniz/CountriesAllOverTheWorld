@@ -50,19 +50,20 @@ body::-webkit-scrollbar {
     height: 50px;
     background-color: rgb(231, 224, 224);
     border: 1px 1px 0 1px solid rgb(110, 96, 96);
-    transition: height 0.5s, background-color 0.5s, opacity 0.5s;
+    transition: 0.5s;
 }
 
 .ordenados:hover {
     /* Estiliza o que ocorrerá ao passar o mouse por cima 
     do conteúdo que aparece ao clicar em 'Ordenar Por'
     */
-    font-size: 13pt;
+    font-size: 14pt;
     background-color: rgb(218, 208, 208);
     border-radius: 5px;
     transition: 0.5s;
     cursor: pointer;
     border: 1px solid rgb(180, 169, 169);
+    transition: 0.5s;
 }
 
 #container-ordenacao {
@@ -99,7 +100,7 @@ body::-webkit-scrollbar {
     height: 50px;
     background-color: rgb(231, 224, 224);
     border: 1px 1px 0 1px solid rgb(110, 96, 96);
-    transition: height 0.5s, background-color 0.5s, opacity 0.5s;
+    transition: 0.5s;
 }
 .filtrado:hover{
     background-color: rgb(218, 208, 208);
@@ -140,7 +141,7 @@ body::-webkit-scrollbar {
     height: 50px;
     background-color: rgb(231, 224, 224);
     border: 1px 1px 0 1px solid rgb(110, 96, 96);
-    transition: height 0.5s, background-color 0.5s, opacity 0.5s;
+    transition: 0.5s;
 }
 .regioes:hover {
     background-color: rgb(218, 208, 208);
@@ -148,7 +149,7 @@ body::-webkit-scrollbar {
     border-radius: 5px;
     transition: 0.5s;
     cursor: pointer;
-    border: 1px solid rgb(180, 169, 169);
+    border: 1px solid rgb(180, 169, 169)
 }
 .sub-regioes {
     font-size: 12pt;
@@ -159,7 +160,7 @@ body::-webkit-scrollbar {
     height: 50px;
     background-color: rgb(231, 224, 224);
     border: 1px 1px 0 1px solid rgb(110, 96, 96);
-    transition: height 0.5s, background-color 0.5s, opacity 0.5s;
+    transition: 0.5s;
 }
 .sub-regioes:hover{
     background-color: rgb(218, 208, 208);
@@ -178,7 +179,7 @@ body::-webkit-scrollbar {
     height: 50px;
     background-color: rgb(231, 224, 224);
     border: 1px 1px 0 1px solid rgb(110, 96, 96);
-    transition: height 0.5s, background-color 0.5s, opacity 0.5s;
+    transition: 0.5s;
 }
 .oceania:hover{
     background-color: rgb(218, 208, 208);
@@ -197,7 +198,7 @@ body::-webkit-scrollbar {
     height: 50px;
     background-color: rgb(231, 224, 224);
     border: 1px 1px 0 1px solid rgb(110, 96, 96);
-    transition: height 0.5s, background-color 0.5s, opacity 0.5s;
+    transition: 0.5s;
 }
 .ilhas-pacifico:hover{
     background-color: rgb(218, 208, 208);
@@ -216,7 +217,7 @@ body::-webkit-scrollbar {
     height: 50px;
     background-color: rgb(231, 224, 224);
     border: 1px 1px 0 1px solid rgb(110, 96, 96);
-    transition: height 0.5s, background-color 0.5s, opacity 0.5s;
+    transition: 0.5s;
 }
 .sub-europa:hover{
     background-color: rgb(218, 208, 208);
@@ -235,7 +236,7 @@ body::-webkit-scrollbar {
     height: 50px;
     background-color: rgb(231, 224, 224);
     border: 1px 1px 0 1px solid rgb(110, 96, 96);
-    transition: height 0.5s, background-color 0.5s, opacity 0.5s;
+    transition: 0.5s;
 }
 .sub-asia:hover{
     background-color: rgb(218, 208, 208);
@@ -254,7 +255,7 @@ body::-webkit-scrollbar {
     height: 50px;
     background-color: rgb(231, 224, 224);
     border: 1px 1px 0 1px solid rgb(110, 96, 96);
-    transition: height 0.5s, background-color 0.5s, opacity 0.5s;
+    transition: 0.5s;
 }
 .sub-america:hover{
     background-color: rgb(218, 208, 208);
@@ -273,7 +274,7 @@ body::-webkit-scrollbar {
     height: 50px;
     background-color: rgb(231, 224, 224);
     border: 1px 1px 0 1px solid rgb(110, 96, 96);
-    transition: height 0.5s, background-color 0.5s, opacity 0.5s;
+    transition: 0.5s;
 }
 .sub-africa:hover{
     background-color: rgb(218, 208, 208);
@@ -292,13 +293,13 @@ body::-webkit-scrollbar {
     height: 50px;
     background-color: rgb(231, 224, 224);
     border: 1px 1px 0 1px solid rgb(110, 96, 96);
-    transition: height 0.5s, background-color 0.5s, opacity 0.5s;
+    transition: 0.3s;
 }
 .tamanho-populacao:hover {
     background-color: rgb(218, 208, 208);
-    font-size: 14pt;
     border-radius: 5px;
-    transition: 0.5s;
+    height: 60px;
+    transition: height 0.5s;
     cursor: pointer;
     border: 1px solid rgb(180, 169, 169);
 }
