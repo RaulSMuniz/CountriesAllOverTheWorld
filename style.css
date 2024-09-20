@@ -5,8 +5,12 @@ body {
     margin: 0;
     padding: 0;
     background-color: antiquewhite;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
-
+body::-webkit-scrollbar {
+    display: none;
+}
 #header {
     /* Título da Aplicação Web */
     margin: 0;
@@ -46,7 +50,6 @@ body {
     height: 50px;
     background-color: rgb(231, 224, 224);
     border: 1px 1px 0 1px solid rgb(110, 96, 96);
-    margin-top: 2px;
     transition: height 0.5s, background-color 0.5s, opacity 0.5s;
 }
 
@@ -59,31 +62,34 @@ body {
     border-radius: 5px;
     transition: 0.5s;
     cursor: pointer;
+    border: 1px solid rgb(180, 169, 169);
 }
 
 #container-ordenacao {
     /* Estiliza a div que contém 'Ordenar Por' e seus childs */
+    position: absolute;
     border: 1px solid rgb(180, 180, 180);
     border-style: none;
     border-radius: 5px;
     width: fit-content;
+    height: 0;
     padding: 1px;
-    margin: auto 5px;
+    margin-right: 900px;
 }
 
 #container-filtrar {
     /* Estiliza a div que contém 'Filtrar' e seus childs */
-    display: flex;
-    flex-direction: column;
+    position: absolute;
     border: 1px solid rgb(180, 180, 180);
     border-style: none;
     border-radius: 5px;
     width: fit-content;
     padding: 1px;
-    margin: auto 0;
+    height: 0;
+    margin-right: 1206px;
+    z-index: 10;
 }
-
-#container-filtrar .filtrado {
+.filtrado {
     /* Estiliza o conteúdo que aparece ao clicar em Filtrar */
     font-size: 12pt;
     display: none;
@@ -93,16 +99,24 @@ body {
     height: 50px;
     background-color: rgb(231, 224, 224);
     border: 1px 1px 0 1px solid rgb(110, 96, 96);
-    margin-top: 2px;
     transition: height 0.5s, background-color 0.5s, opacity 0.5s;
 }
-
+.filtrado:hover{
+    background-color: rgb(218, 208, 208);
+    font-size: 14pt;
+    border-radius: 5px;
+    transition: 0.5s;
+    cursor: pointer;
+    border: 1px solid rgb(180, 169, 169);
+}
 #filtrar {
     /* Estiliza o span que contém 'Filtrar' */
-    width: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 140px;
     height: fit-content;
     font-size: 16pt;
-    justify-content: center;
     background-color: rgb(231, 224, 224);
     color: rgb(84, 97, 107);
     border: 1px 1px 0 1px solid rgb(219, 212, 212);
@@ -117,7 +131,177 @@ body {
     transition: 0.5s ease-in-out;
     cursor: pointer;
 }
-
+.regioes{
+    font-size: 12pt;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    width: 140px;
+    height: 50px;
+    background-color: rgb(231, 224, 224);
+    border: 1px 1px 0 1px solid rgb(110, 96, 96);
+    transition: height 0.5s, background-color 0.5s, opacity 0.5s;
+}
+.regioes:hover {
+    background-color: rgb(218, 208, 208);
+    font-size: 14pt;
+    border-radius: 5px;
+    transition: 0.5s;
+    cursor: pointer;
+    border: 1px solid rgb(180, 169, 169);
+}
+.sub-regioes {
+    font-size: 12pt;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    width: 140px;
+    height: 50px;
+    background-color: rgb(231, 224, 224);
+    border: 1px 1px 0 1px solid rgb(110, 96, 96);
+    transition: height 0.5s, background-color 0.5s, opacity 0.5s;
+}
+.sub-regioes:hover{
+    background-color: rgb(218, 208, 208);
+    font-size: 14pt;
+    border-radius: 5px;
+    transition: 0.5s;
+    cursor: pointer;
+    border: 1px solid rgb(180, 169, 169);
+}
+.oceania{
+    font-size: 12pt;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    width: 140px;
+    height: 50px;
+    background-color: rgb(231, 224, 224);
+    border: 1px 1px 0 1px solid rgb(110, 96, 96);
+    transition: height 0.5s, background-color 0.5s, opacity 0.5s;
+}
+.oceania:hover{
+    background-color: rgb(218, 208, 208);
+    font-size: 14pt;
+    border-radius: 5px;
+    transition: 0.5s;
+    cursor: pointer;
+    border: 1px solid rgb(180, 169, 169);
+}
+.ilhas-pacifico{
+    font-size: 12pt;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    width: 140px;
+    height: 50px;
+    background-color: rgb(231, 224, 224);
+    border: 1px 1px 0 1px solid rgb(110, 96, 96);
+    transition: height 0.5s, background-color 0.5s, opacity 0.5s;
+}
+.ilhas-pacifico:hover{
+    background-color: rgb(218, 208, 208);
+    font-size: 14pt;
+    border-radius: 5px;
+    transition: 0.5s;
+    cursor: pointer;
+    border: 1px solid rgb(180, 169, 169);
+}
+.sub-europa{
+    font-size: 12pt;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    width: 140px;
+    height: 50px;
+    background-color: rgb(231, 224, 224);
+    border: 1px 1px 0 1px solid rgb(110, 96, 96);
+    transition: height 0.5s, background-color 0.5s, opacity 0.5s;
+}
+.sub-europa:hover{
+    background-color: rgb(218, 208, 208);
+    font-size: 14pt;
+    border-radius: 5px;
+    transition: 0.5s;
+    cursor: pointer;
+    border: 1px solid rgb(180, 169, 169);
+}
+.sub-asia{
+    font-size: 12pt;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    width: 140px;
+    height: 50px;
+    background-color: rgb(231, 224, 224);
+    border: 1px 1px 0 1px solid rgb(110, 96, 96);
+    transition: height 0.5s, background-color 0.5s, opacity 0.5s;
+}
+.sub-asia:hover{
+    background-color: rgb(218, 208, 208);
+    font-size: 14pt;
+    border-radius: 5px;
+    transition: 0.5s;
+    cursor: pointer;
+    border: 1px solid rgb(180, 169, 169);
+}
+.sub-america{
+    font-size: 12pt;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    width: 140px;
+    height: 50px;
+    background-color: rgb(231, 224, 224);
+    border: 1px 1px 0 1px solid rgb(110, 96, 96);
+    transition: height 0.5s, background-color 0.5s, opacity 0.5s;
+}
+.sub-america:hover{
+    background-color: rgb(218, 208, 208);
+    font-size: 14pt;
+    border-radius: 5px;
+    transition: 0.5s;
+    cursor: pointer;
+    border: 1px solid rgb(180, 169, 169);
+}
+.sub-africa{
+    font-size: 12pt;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    width: 140px;
+    height: 50px;
+    background-color: rgb(231, 224, 224);
+    border: 1px 1px 0 1px solid rgb(110, 96, 96);
+    transition: height 0.5s, background-color 0.5s, opacity 0.5s;
+}
+.sub-africa:hover{
+    background-color: rgb(218, 208, 208);
+    font-size: 14pt;
+    border-radius: 5px;
+    transition: 0.5s;
+    cursor: pointer;
+    border: 1px solid rgb(180, 169, 169);
+}
+.tamanho-populacao {
+    font-size: 12pt;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    width: 140px;
+    height: 50px;
+    background-color: rgb(231, 224, 224);
+    border: 1px 1px 0 1px solid rgb(110, 96, 96);
+    transition: height 0.5s, background-color 0.5s, opacity 0.5s;
+}
+.tamanho-populacao:hover {
+    background-color: rgb(218, 208, 208);
+    font-size: 14pt;
+    border-radius: 5px;
+    transition: 0.5s;
+    cursor: pointer;
+    border: 1px solid rgb(180, 169, 169);
+}
 #inputs-position {
     /* Definir posição dos botões através de uma div */
     display: flex;
