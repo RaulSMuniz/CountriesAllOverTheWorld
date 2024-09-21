@@ -100,7 +100,20 @@ function mostrarFiltroReg() { // Mostra o menu de regiões (continentes)
             elementos.forEach(el => el.classList.remove('selecionado'));
 
             event.target.classList.add('selecionado');
-            filtrarRegioes();
+            const regiao = event.target.getAttribute('value');
+            if (regiao === 'regiao-africa'){
+                filtrarRegioes('Africa');
+            } else if (regiao === 'regiao-america'){
+                filtrarRegioes('Americas');
+            } else if (regiao === 'regiao-asia'){
+                filtrarRegioes('Asia');
+            } else if (regiao === 'regiao-europa'){
+                filtrarRegioes('Europe');
+            } else if (regiao === 'regiao-oceania'){
+                filtrarRegioes('Oceania');
+            } else if (regiao === 'regiao-antartida'){
+                filtrarRegioes('Antarctic');
+            }
         });
     };
 };
@@ -113,7 +126,6 @@ function fecharFiltroReg() { // Fecha o menu de regiões (continentes)
 function mostrarFiltroSub() { // Função que mostra as opções de Regiões para só então mostrar sub-região
     const mostrar = document.getElementsByClassName('sub-regioes');
     const mostrarOceania = document.getElementsByClassName('oceania');
-    const mostrarIlha = document.getElementsByClassName('ilhas-pacifico');
     for (let i = 0; i < mostrar.length; i++) { // Loop que mostra opções de Sub-Regiões
         mostrar[i].style.display = 'flex';
         mostrar[i].addEventListener('click', (event) => {
@@ -124,59 +136,22 @@ function mostrarFiltroSub() { // Função que mostra as opções de Regiões par
             mostrarSubRegioes();
         });
     };
-    for (let i = 0; i < 1; i++) {
-        mostrarOceania[i].style.display = 'flex';
-        mostrarIlha[i].style.display = 'flex';
-    };
 };
 
 function fecharFiltroSub() { // Função que fecha as sub-regiões
-    const fechar = document.getElementsByClassName('sub-regioes');
-    const fecharSubAmerica = document.querySelectorAll('.sub-america');
-    const fecharAfrica = document.querySelectorAll('.sub-africa');
-    const fecharEuropa = document.querySelectorAll('.sub-europa');
-    const fecharAsia = document.querySelectorAll('.sub-asia');
-    const fecharOceania = document.querySelectorAll('.oceania');
-    const fecharIlha = document.querySelectorAll('.ilhas-pacifico')
-    // Fecha as sub-regiões
-    for (let i = 0; i < fechar.length; i++) {
-        fechar[i].style.display = 'none';
+    const fecharSub = document.querySelectorAll('.sub-regioes');
+    const fecharSubRegioes = document.querySelectorAll('.sub-america, .sub-africa, .sub-asia, .sub-europa, .oceania');
+    
+    for (let i = 0; i < fecharSub.length; i++) { // Fecha as opções que mostram mais opções de sub-regiões
+        fecharSub[i].style.display = 'none';
     };
-    // Fecha sub-americas
-    for (let i = 0; i < fecharSubAmerica.length; i++) {
-        fecharSubAmerica[i].style.display = 'none';
-    };
-    // Fecha sub-africa
-    for (let i = 0; i < fecharAfrica.length; i++) {
-        fecharAfrica[i].style.display = 'none';
-    };
-    // Fecha sub-europa
-    for (let i = 0; i < fecharEuropa.length; i++) {
-        fecharEuropa[i].style.display = 'none';
-    };
-
-    // Fecha sub-asia
-    for (let i = 0; i < fecharAsia.length; i++) {
-        fecharAsia[i].style.display = 'none';
-    };
-
-    // Fecha oceania
-    for (let i = 0; i < fecharOceania.length; i++) {
-        fecharOceania[i].style.display = 'none';
-    };
-
-    // Fecha ilhas-pacifico
-    for (let i = 0; i < fecharIlha.length; i++) {
-        fecharIlha[i].style.display = 'none';
-    };
-}
+    fecharSubRegioes.forEach(subReg => { // Fecham as sub-regiões específicas
+        subReg.style.display = 'none';
+    });
+};
 
 function mostrarSubRegioes() { // Função que mostra as sub-regiões existentes em uma região
     const valorSubReg = document.querySelector('.sub-regioes.selecionado')?.getAttribute('value');
-    const fecharSubAmerica = document.querySelectorAll('.sub-america');
-    const fecharAfrica = document.querySelectorAll('.sub-africa');
-    const fecharEuropa = document.querySelectorAll('.sub-europa');
-    const fecharAsia = document.querySelectorAll('.sub-asia');
     if (!valorSubReg) return;
 
     if (valorSubReg === 'americas') { // Mostra as sub-regiões da América
@@ -184,181 +159,120 @@ function mostrarSubRegioes() { // Função que mostra as sub-regiões existentes
         for (let i = 0; i < mostrar.length; i++) {
             mostrar[i].style.display = 'flex';
             mostrar[i].addEventListener('click', (event) => {
-                const elementosEU = document.querySelectorAll('.sub-europa');
-                const elementosAM = document.querySelectorAll('.sub-america');
-                const elementosAF = document.querySelectorAll('.sub-africa');
-                const elementosAS = document.querySelectorAll('.sub-asia');
-                const elementosOC = document.querySelectorAll('.oceania');
-                const elementosIP = document.querySelectorAll('.ilhas-pacifico');
-                elementosEU.forEach(eu => eu.classList.remove('selecionado'));
-                elementosAM.forEach(eu => eu.classList.remove('selecionado'));
-                elementosAF.forEach(eu => eu.classList.remove('selecionado'));
-                elementosAS.forEach(eu => eu.classList.remove('selecionado'));
-                elementosOC.forEach(eu => eu.classList.remove('selecionado'));
-                elementosIP.forEach(eu => eu.classList.remove('selecionado'));
+                const elementos = document.querySelectorAll('.sub-america, .sub-africa, .sub-asia, .sub-europa, .oceania');
+                elementos.forEach(eu => eu.classList.remove('selecionado'));
 
                 event.target.classList.add('selecionado');
-                filtrarAmerica();
+                const subRegiaoEscolhida = event.target.getAttribute('value');
+                if (subRegiaoEscolhida === 'america-norte'){
+                    filtrarSubRegioes('Northern America');
+                } else if (subRegiaoEscolhida === 'america-central'){
+                    filtrarSubRegioes('Central America');
+                } else if (subRegiaoEscolhida === 'america-sul'){
+                    filtrarSubRegioes('South America');
+                } else if (subRegiaoEscolhida === 'america-caribe'){
+                    filtrarSubRegioes('Caribbean');
+                };
             });
         };
-        // Fecha sub-africa
-        for (let i = 0; i < fecharAfrica.length; i++) {
-            fecharAfrica[i].style.display = 'none';
-        };
-        // Fecha sub-europa
-        for (let i = 0; i < fecharEuropa.length; i++) {
-            fecharEuropa[i].style.display = 'none';
-        };
-        // Fecha sub-asia
-        for (let i = 0; i < fecharAsia.length; i++) {
-            fecharAsia[i].style.display = 'none';
-        };
+        const fecharResto = document.querySelectorAll('.sub-africa, .sub-asia, .sub-europa, .oceania');
+        fecharResto.forEach(fR => fR.style.display = 'none');
     } else if (valorSubReg === 'africa') { // Mostra as sub-regiões da África
         const mostrar = document.getElementsByClassName('sub-africa');
         for (let i = 0; i < mostrar.length; i++) {
             mostrar[i].style.display = 'flex';
             mostrar[i].addEventListener('click', (event) => {
-                const elementosEU = document.querySelectorAll('.sub-europa');
-                const elementosAM = document.querySelectorAll('.sub-america');
-                const elementosAF = document.querySelectorAll('.sub-africa');
-                const elementosAS = document.querySelectorAll('.sub-asia');
-                const elementosOC = document.querySelectorAll('.oceania');
-                const elementosIP = document.querySelectorAll('.ilhas-pacifico');
-                elementosEU.forEach(eu => eu.classList.remove('selecionado'));
-                elementosAM.forEach(eu => eu.classList.remove('selecionado'));
-                elementosAF.forEach(eu => eu.classList.remove('selecionado'));
-                elementosAS.forEach(eu => eu.classList.remove('selecionado'));
-                elementosOC.forEach(eu => eu.classList.remove('selecionado'));
-                elementosIP.forEach(eu => eu.classList.remove('selecionado'));
+                const elementos = document.querySelectorAll('.sub-america, .sub-africa, .sub-asia, .sub-europa, .oceania');
+                elementos.forEach(eu => eu.classList.remove('selecionado'));
 
                 event.target.classList.add('selecionado');
-                filtrarAfrica();
+                const subRegiaoEscolhida = event.target.getAttribute('value');
+                if (subRegiaoEscolhida === 'africa-norte'){
+                    filtrarSubRegioes('Northern Africa');
+                } else if (subRegiaoEscolhida === 'africa-central'){
+                    filtrarSubRegioes('Middle Africa');
+                } else if (subRegiaoEscolhida === 'africa-sul'){
+                    filtrarSubRegioes('Southern Africa');
+                } else if (subRegiaoEscolhida === 'africa-ocidente'){
+                    filtrarSubRegioes('Western Africa');
+                } else if (subRegiaoEscolhida === 'africa-oriente'){
+                    filtrarSubRegioes('Eastern Africa');
+                };
             });
         };
-        // Fecha sub-americas
-        for (let i = 0; i < fecharSubAmerica.length; i++) {
-            fecharSubAmerica[i].style.display = 'none';
-        };
-        // Fecha sub-europa
-        for (let i = 0; i < fecharEuropa.length; i++) {
-            fecharEuropa[i].style.display = 'none';
-        };
-        // Fecha sub-asia
-        for (let i = 0; i < fecharAsia.length; i++) {
-            fecharAsia[i].style.display = 'none';
-        };
+        const fecharResto = document.querySelectorAll('.sub-america, .sub-asia, .sub-europa, .oceania');
+        fecharResto.forEach(fR => fR.style.display = 'none');
     } else if (valorSubReg === 'asia') { // Mostra as sub-regiões da Ásia
         const mostrar = document.getElementsByClassName('sub-asia');
         for (let i = 0; i < mostrar.length; i++) {
             mostrar[i].style.display = 'flex';
             mostrar[i].addEventListener('click', (event) => {
-                const elementosEU = document.querySelectorAll('.sub-europa');
-                const elementosAM = document.querySelectorAll('.sub-america');
-                const elementosAF = document.querySelectorAll('.sub-africa');
-                const elementosAS = document.querySelectorAll('.sub-asia');
-                const elementosOC = document.querySelectorAll('.oceania');
-                const elementosIP = document.querySelectorAll('.ilhas-pacifico');
-                elementosEU.forEach(eu => eu.classList.remove('selecionado'));
-                elementosAM.forEach(eu => eu.classList.remove('selecionado'));
-                elementosAF.forEach(eu => eu.classList.remove('selecionado'));
-                elementosAS.forEach(eu => eu.classList.remove('selecionado'));
-                elementosOC.forEach(eu => eu.classList.remove('selecionado'));
-                elementosIP.forEach(eu => eu.classList.remove('selecionado'));
+                const elementos = document.querySelectorAll('.sub-america, .sub-africa, .sub-asia, .sub-europa, .oceania');
+                elementos.forEach(eu => eu.classList.remove('selecionado'));
 
                 event.target.classList.add('selecionado');
-                filtrarAsia();
+                const subRegiaoEscolhida = event.target.getAttribute('value');
+                if (subRegiaoEscolhida === 'asia-central'){
+                    filtrarSubRegioes('Central Asia');
+                } else if (subRegiaoEscolhida === 'asia-oriente'){
+                    filtrarSubRegioes('Eastern Asia');
+                } else if (subRegiaoEscolhida === 'asia-ocidente'){
+                    filtrarSubRegioes('Western Asia');
+                } else if (subRegiaoEscolhida === 'asia-sudeste'){
+                    filtrarSubRegioes('South-Eastern Asia');
+                } else if (subRegiaoEscolhida === 'asia-sul'){
+                    filtrarSubRegioes('Southern Asia');
+                };
             });
         };
-        // Fecha sub-americas
-        for (let i = 0; i < fecharSubAmerica.length; i++) {
-            fecharSubAmerica[i].style.display = 'none';
-        };
-        // Fecha sub-africa
-        for (let i = 0; i < fecharAfrica.length; i++) {
-            fecharAfrica[i].style.display = 'none';
-        };
-        // Fecha sub-europa
-        for (let i = 0; i < fecharEuropa.length; i++) {
-            fecharEuropa[i].style.display = 'none';
-        };
+        const fecharResto = document.querySelectorAll('.sub-america, .sub-africa, .sub-europa, .oceania');
+        fecharResto.forEach(fR => fR.style.display = 'none');
     } else if (valorSubReg === 'europa') { // Mostra as sub-regiões da Europa
         const mostrar = document.getElementsByClassName('sub-europa');
         for (let i = 0; i < mostrar.length; i++) {
             mostrar[i].style.display = 'flex';
             mostrar[i].addEventListener('click', (event) => {
-                const elementosEU = document.querySelectorAll('.sub-europa');
-                const elementosAM = document.querySelectorAll('.sub-america');
-                const elementosAF = document.querySelectorAll('.sub-africa');
-                const elementosAS = document.querySelectorAll('.sub-asia');
-                const elementosOC = document.querySelectorAll('.oceania');
-                const elementosIP = document.querySelectorAll('.ilhas-pacifico');
-                elementosEU.forEach(eu => eu.classList.remove('selecionado'));
-                elementosAM.forEach(eu => eu.classList.remove('selecionado'));
-                elementosAF.forEach(eu => eu.classList.remove('selecionado'));
-                elementosAS.forEach(eu => eu.classList.remove('selecionado'));
-                elementosOC.forEach(eu => eu.classList.remove('selecionado'));
-                elementosIP.forEach(eu => eu.classList.remove('selecionado'));
+                const elementos = document.querySelectorAll('.sub-america, .sub-africa, .sub-asia, .sub-europa, .oceania');
+                elementos.forEach(eu => eu.classList.remove('selecionado'));
 
                 event.target.classList.add('selecionado');
-                filtrarEuropa();
+                const subRegiaoEscolhida = event.target.getAttribute('value');
+                if (subRegiaoEscolhida === 'europa-oriente'){
+                    filtrarSubRegioes('Eastern Europe');
+                } else if (subRegiaoEscolhida === 'europa-ocidente'){
+                    filtrarSubRegioes('Western Europe');
+                } else if (subRegiaoEscolhida === 'europa-norte'){
+                    filtrarSubRegioes('Northern Europe');
+                } else if (subRegiaoEscolhida === 'europa-sul'){
+                    filtrarSubRegioes('Southern Europe');
+                } else if (subRegiaoEscolhida === 'europa-central'){
+                    filtrarSubRegioes('Central Europe');
+                };
             });
         };
-        // Fecha sub-americas
-        for (let i = 0; i < fecharSubAmerica.length; i++) {
-            fecharSubAmerica[i].style.display = 'none';
-        };
-        // Fecha sub-africa
-        for (let i = 0; i < fecharAfrica.length; i++) {
-            fecharAfrica[i].style.display = 'none';
-        };
-        // Fecha sub-asia
-        for (let i = 0; i < fecharAsia.length; i++) {
-            fecharAsia[i].style.display = 'none';
-        };
+        const fecharResto = document.querySelectorAll('.sub-america, .sub-africa, .sub-asia, .oceania');
+        fecharResto.forEach(fR => fR.style.display = 'none');
     } else if (valorSubReg === 'oceania') {
         const mostrar = document.getElementsByClassName('oceania');
         for (let i = 0; i < mostrar.length; i++) {
             mostrar[i].style.display = 'flex';
             mostrar[i].addEventListener('click', (event) => {
-                const elementosEU = document.querySelectorAll('.sub-europa');
-                const elementosAM = document.querySelectorAll('.sub-america');
-                const elementosAF = document.querySelectorAll('.sub-africa');
-                const elementosAS = document.querySelectorAll('.sub-asia');
-                const elementosOC = document.querySelectorAll('.oceania');
-                const elementosIP = document.querySelectorAll('.ilhas-pacifico');
-                elementosEU.forEach(eu => eu.classList.remove('selecionado'));
-                elementosAM.forEach(eu => eu.classList.remove('selecionado'));
-                elementosAF.forEach(eu => eu.classList.remove('selecionado'));
-                elementosAS.forEach(eu => eu.classList.remove('selecionado'));
-                elementosOC.forEach(eu => eu.classList.remove('selecionado'));
-                elementosIP.forEach(eu => eu.classList.remove('selecionado'));
+                const elementos = document.querySelectorAll('.sub-america, .sub-africa, .sub-asia, .sub-europa, .oceania');
+                elementos.forEach(eu => eu.classList.remove('selecionado'));
 
                 event.target.classList.add('selecionado');
-                filtrarOceania();
+                const subRegiaoEscolhida = event.target.getAttribute('value');
+                if (subRegiaoEscolhida === 'polinesia'){
+                    filtrarSubRegioes('Polynesia');
+                } else if (subRegiaoEscolhida === 'melanesia'){
+                    filtrarSubRegioes('Melanesia');
+                } else if (subRegiaoEscolhida === 'micronesia'){
+                    filtrarSubRegioes('Micronesia');
+                }
             });
         };
-    } else if (valorSubReg === 'ilhas') {
-        const mostrar = document.getElementsByClassName('ilhas-pacifico');
-        for (let i = 0; i < mostrar.length; i++) {
-            mostrar[i].style.display = 'flex';
-            mostrar[i].addEventListener('click', (event) => {
-                const elementosEU = document.querySelectorAll('.sub-europa');
-                const elementosAM = document.querySelectorAll('.sub-america');
-                const elementosAF = document.querySelectorAll('.sub-africa');
-                const elementosAS = document.querySelectorAll('.sub-asia');
-                const elementosOC = document.querySelectorAll('.oceania');
-                const elementosIP = document.querySelectorAll('.ilhas-pacifico');
-                elementosEU.forEach(eu => eu.classList.remove('selecionado'));
-                elementosAM.forEach(eu => eu.classList.remove('selecionado'));
-                elementosAF.forEach(eu => eu.classList.remove('selecionado'));
-                elementosAS.forEach(eu => eu.classList.remove('selecionado'));
-                elementosOC.forEach(eu => eu.classList.remove('selecionado'));
-                elementosIP.forEach(eu => eu.classList.remove('selecionado'));
-
-                event.target.classList.add('selecionado');
-                filtrarIlhas();
-            });
-        };
+        const fecharResto = document.querySelectorAll('.sub-america, .sub-africa, .sub-europa, .sub-asia');
+        fecharResto.forEach(fR => fR.style.display = 'none');
     };
 };
 
@@ -367,7 +281,7 @@ function mostrarFiltroP() { // Mostra o filtro de população
     for (let i = 0; i < mostrar.length; i++) {
         mostrar[i].style.display = 'flex';
         mostrar[i].addEventListener('click', function (event) { // Adiciona função de click
-            const elementos = querySelectorAll('.tamanho-populacao');
+            const elementos = document.querySelectorAll('.tamanho-populacao');
             elementos.forEach(el => el.classList.remove('selecionado'));
 
             event.target.classList.add('selecionado');
@@ -382,23 +296,37 @@ function fecharFiltroP() { // Fecha o filtro de população
     }
 }
 
-function filtrarRegioes() { // Função para filtrar por continente;
-    // pendente
+function filtrarRegioes(regiao) { // Função para filtrar por continente;
+    const filtrarRegiao = window.paisesOriginais.filter(pais => pais.region === regiao);
+    mostrarPaises(filtrarRegiao);
 }
 
-// condicionais pendentes abaixo;
+function filtrarSubRegioes(subRegiao) { // Função para filtrar por sub-regiões de continente;
+    const filtrarSubRegiao = window.paisesOriginais.filter(pais => pais.subregion === subRegiao);
+    mostrarPaises(filtrarSubRegiao);
+};
+
+// Filtro por intervalo de população finalizado;
 function filtrarTamanhoPopulacao() { // Função para filtrar por interavalos de população;
     const valorTamanhoPopulacao = document.querySelector('.tamanho-populacao.selecionado')?.getAttribute('value');
+    let intervaloPopulacao = {};
     if (!valorTamanhoPopulacao) return;
+    
 
     if (valorTamanhoPopulacao === 'menor-1m') {
-
+        intervaloPopulacao = {min: 0, max: 1000000}; // menos de 1 milhão
     } else if (valorTamanhoPopulacao === 'menor-10m') {
-
+        intervaloPopulacao = {min: 1000000, max: 10000000}; // menos de 10 milhões
     } else if (valorTamanhoPopulacao === 'menor-100m') {
-
+        intervaloPopulacao = {min: 10000000, max: 100000000}; // menos de 100 milhões
     } else if (valorTamanhoPopulacao === 'maior-100m') {
-
+        intervaloPopulacao = {min: 100000000}; // mais de 100 milhões
     };
-}
+
+    const filtrarPopulacao = window.paisesOriginais.filter(pais => {
+        return pais.population >= intervaloPopulacao.min && 
+        (intervaloPopulacao.max ? pais.population <= intervaloPopulacao.max: true);
+    });
+    mostrarPaises(filtrarPopulacao);
+};
 obterRestCountries(); // chama a função inicial para que os dados sejam devidamente distribuídos;

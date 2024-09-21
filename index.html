@@ -20,12 +20,12 @@
             <span id="filtrar">Filtrar</span>
             <div id="container-regioes" onclick="mostrarFiltroReg()" onmouseleave="fecharFiltroReg()">
                 <span class="filtrado" id="regiao" value="regiao">↓ Região ↓</span>
-                <span class="regioes">África</span>
-                <span class="regioes">Américas</span>
-                <span class="regioes">Ásia</span>
-                <span class="regioes">Europa</span>
-                <span class="regioes">Antártida</span>
-                <span class="regioes">Oceania</span>
+                <span class="regioes" value="regiao-africa">África</span>
+                <span class="regioes" value="regiao-america">Américas</span>
+                <span class="regioes" value="regiao-asia">Ásia</span>
+                <span class="regioes" value="regiao-europa">Europa</span>
+                <span class="regioes" value="regiao-antartida">Antártida</span>
+                <span class="regioes" value="regiao-oceania">Oceania</span>
             </div>
             <div id="container-sub" onclick="mostrarFiltroSub()" onmouseleave="fecharFiltroSub()">
                 <span class="filtrado" id="sub-regiao" value="sub-regiao">↓ Sub-Região ↓</span>
@@ -33,7 +33,8 @@
                     <span class="sub-regioes" value="americas" onclick="mostrarSubRegioes()">↓ Américas ↓</span>
                     <span class="sub-america" value="america-norte">América do Norte</span>
                     <span class="sub-america" value="america-central">América Central</span>
-                    <span class="sub-america" value="america-sul">América do Sul</span>     
+                    <span class="sub-america" value="america-sul">América do Sul</span>  
+                    <span class="sub-america" value="america-caribe">Caribe</span>   
                 </div>
                 <div class="subs">
                     <span class="sub-regioes" value="africa" onclick="mostrarSubRegioes()">↓ África ↓</span>
@@ -41,11 +42,12 @@
                     <span class="sub-africa" value="africa-central">África Central</span>
                     <span class="sub-africa" value="africa-sul">África do Sul</span>
                     <span class="sub-africa" value="africa-ocidente">África Ocidental</span>
-                    <span class="sub-africa" value="africa-austral">África Austral</span>    
+                    <span class="sub-africa" value="africa-oriente">África Oriental</span>  
                 </div>
                 <div class="subs">
                     <span class="sub-regioes" value="asia" onclick="mostrarSubRegioes()">↓ Ásia ↓</span>
                     <span class="sub-asia" value="asia-central">Ásia Central</span>
+                    <span class="sub-asia" value="asia-sul">Ásia do Sul</span>
                     <span class="sub-asia" value="asia-oriente">Ásia Oriental</span>
                     <span class="sub-asia" value="asia-ocidente">Ásia Ocidental</span>
                     <span class="sub-asia" value="asia-sudeste">Ásia Sudeste</span>   
@@ -54,12 +56,17 @@
                     <span class="sub-regioes" value="europa" onclick="mostrarSubRegioes()">↓ Europa ↓</span>
                     <span class="sub-europa" value="europa-oriente">Europa Oriental</span>
                     <span class="sub-europa" value="europa-ocidente">Europa Ocidental</span>
+                    <span class="sub-europa" value="europa-central">Europa Central</span>
                     <span class="sub-europa" value="europa-norte">Europa do Norte</span>
                     <span class="sub-europa" value="europa-sul">Europa do Sul</span>
                 </div>
+                <div class="subs">
+                    <span class="sub-regioes" value="oceania" onclick="mostrarSubRegioes()">↓ Oceania ↓</span>
+                    <span class="oceania" value="polinesia">Polinésia</span>
+                    <span class="oceania" value="micronesia">Micronésia</span>
+                    <span class="oceania" value="melanesia">Melanésia</span>
+                </div>
                 
-                <span class="oceania" value="oceania">Oceania</span>
-                <span class="ilhas-pacifico" value="ilhas">Ilhas do Pacífico</span>
             </div>
             <div id="container-populacao" onclick="mostrarFiltroP()" onmouseleave="fecharFiltroP()">
                 <span class="filtrado" id="populacao" value="populacao">↓ População ↓ </span>

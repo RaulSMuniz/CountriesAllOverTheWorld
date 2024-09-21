@@ -189,25 +189,7 @@ body::-webkit-scrollbar {
     cursor: pointer;
     border: 1px solid rgb(180, 169, 169);
 }
-.ilhas-pacifico{
-    font-size: 12pt;
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    width: 140px;
-    height: 50px;
-    background-color: rgb(231, 224, 224);
-    border: 1px 1px 0 1px solid rgb(110, 96, 96);
-    transition: 0.5s;
-}
-.ilhas-pacifico:hover{
-    background-color: rgb(218, 208, 208);
-    font-size: 14pt;
-    border-radius: 5px;
-    transition: 0.5s;
-    cursor: pointer;
-    border: 1px solid rgb(180, 169, 169);
-}
+
 .sub-europa{
     font-size: 12pt;
     display: none;
