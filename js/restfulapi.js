@@ -165,7 +165,7 @@ function mostrarSubRegioes() { // Função que mostra as sub-regiões existentes
                 event.target.classList.add('selecionado');
                 const subRegiaoEscolhida = event.target.getAttribute('value');
                 if (subRegiaoEscolhida === 'america-norte') {
-                    filtrarSubRegioes('Northern America');
+                    filtrarSubRegioes('North America');
                 } else if (subRegiaoEscolhida === 'america-central') {
                     filtrarSubRegioes('Central America');
                 } else if (subRegiaoEscolhida === 'america-sul') {
