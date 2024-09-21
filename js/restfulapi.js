@@ -101,17 +101,17 @@ function mostrarFiltroReg() { // Mostra o menu de regiões (continentes)
 
             event.target.classList.add('selecionado');
             const regiao = event.target.getAttribute('value');
-            if (regiao === 'regiao-africa'){
+            if (regiao === 'regiao-africa') {
                 filtrarRegioes('Africa');
-            } else if (regiao === 'regiao-america'){
+            } else if (regiao === 'regiao-america') {
                 filtrarRegioes('Americas');
-            } else if (regiao === 'regiao-asia'){
+            } else if (regiao === 'regiao-asia') {
                 filtrarRegioes('Asia');
-            } else if (regiao === 'regiao-europa'){
+            } else if (regiao === 'regiao-europa') {
                 filtrarRegioes('Europe');
-            } else if (regiao === 'regiao-oceania'){
+            } else if (regiao === 'regiao-oceania') {
                 filtrarRegioes('Oceania');
-            } else if (regiao === 'regiao-antartida'){
+            } else if (regiao === 'regiao-antartida') {
                 filtrarRegioes('Antarctic');
             }
         });
@@ -141,7 +141,7 @@ function mostrarFiltroSub() { // Função que mostra as opções de Regiões par
 function fecharFiltroSub() { // Função que fecha as sub-regiões
     const fecharSub = document.querySelectorAll('.sub-regioes');
     const fecharSubRegioes = document.querySelectorAll('.sub-america, .sub-africa, .sub-asia, .sub-europa, .oceania');
-    
+
     for (let i = 0; i < fecharSub.length; i++) { // Fecha as opções que mostram mais opções de sub-regiões
         fecharSub[i].style.display = 'none';
     };
@@ -164,13 +164,13 @@ function mostrarSubRegioes() { // Função que mostra as sub-regiões existentes
 
                 event.target.classList.add('selecionado');
                 const subRegiaoEscolhida = event.target.getAttribute('value');
-                if (subRegiaoEscolhida === 'america-norte'){
+                if (subRegiaoEscolhida === 'america-norte') {
                     filtrarSubRegioes('Northern America');
-                } else if (subRegiaoEscolhida === 'america-central'){
+                } else if (subRegiaoEscolhida === 'america-central') {
                     filtrarSubRegioes('Central America');
-                } else if (subRegiaoEscolhida === 'america-sul'){
+                } else if (subRegiaoEscolhida === 'america-sul') {
                     filtrarSubRegioes('South America');
-                } else if (subRegiaoEscolhida === 'america-caribe'){
+                } else if (subRegiaoEscolhida === 'america-caribe') {
                     filtrarSubRegioes('Caribbean');
                 };
             });
@@ -187,15 +187,15 @@ function mostrarSubRegioes() { // Função que mostra as sub-regiões existentes
 
                 event.target.classList.add('selecionado');
                 const subRegiaoEscolhida = event.target.getAttribute('value');
-                if (subRegiaoEscolhida === 'africa-norte'){
+                if (subRegiaoEscolhida === 'africa-norte') {
                     filtrarSubRegioes('Northern Africa');
-                } else if (subRegiaoEscolhida === 'africa-central'){
+                } else if (subRegiaoEscolhida === 'africa-central') {
                     filtrarSubRegioes('Middle Africa');
-                } else if (subRegiaoEscolhida === 'africa-sul'){
+                } else if (subRegiaoEscolhida === 'africa-sul') {
                     filtrarSubRegioes('Southern Africa');
-                } else if (subRegiaoEscolhida === 'africa-ocidente'){
+                } else if (subRegiaoEscolhida === 'africa-ocidente') {
                     filtrarSubRegioes('Western Africa');
-                } else if (subRegiaoEscolhida === 'africa-oriente'){
+                } else if (subRegiaoEscolhida === 'africa-oriente') {
                     filtrarSubRegioes('Eastern Africa');
                 };
             });
@@ -212,15 +212,15 @@ function mostrarSubRegioes() { // Função que mostra as sub-regiões existentes
 
                 event.target.classList.add('selecionado');
                 const subRegiaoEscolhida = event.target.getAttribute('value');
-                if (subRegiaoEscolhida === 'asia-central'){
+                if (subRegiaoEscolhida === 'asia-central') {
                     filtrarSubRegioes('Central Asia');
-                } else if (subRegiaoEscolhida === 'asia-oriente'){
+                } else if (subRegiaoEscolhida === 'asia-oriente') {
                     filtrarSubRegioes('Eastern Asia');
-                } else if (subRegiaoEscolhida === 'asia-ocidente'){
+                } else if (subRegiaoEscolhida === 'asia-ocidente') {
                     filtrarSubRegioes('Western Asia');
-                } else if (subRegiaoEscolhida === 'asia-sudeste'){
+                } else if (subRegiaoEscolhida === 'asia-sudeste') {
                     filtrarSubRegioes('South-Eastern Asia');
-                } else if (subRegiaoEscolhida === 'asia-sul'){
+                } else if (subRegiaoEscolhida === 'asia-sul') {
                     filtrarSubRegioes('Southern Asia');
                 };
             });
@@ -237,15 +237,15 @@ function mostrarSubRegioes() { // Função que mostra as sub-regiões existentes
 
                 event.target.classList.add('selecionado');
                 const subRegiaoEscolhida = event.target.getAttribute('value');
-                if (subRegiaoEscolhida === 'europa-oriente'){
+                if (subRegiaoEscolhida === 'europa-oriente') {
                     filtrarSubRegioes('Eastern Europe');
-                } else if (subRegiaoEscolhida === 'europa-ocidente'){
+                } else if (subRegiaoEscolhida === 'europa-ocidente') {
                     filtrarSubRegioes('Western Europe');
-                } else if (subRegiaoEscolhida === 'europa-norte'){
+                } else if (subRegiaoEscolhida === 'europa-norte') {
                     filtrarSubRegioes('Northern Europe');
-                } else if (subRegiaoEscolhida === 'europa-sul'){
+                } else if (subRegiaoEscolhida === 'europa-sul') {
                     filtrarSubRegioes('Southern Europe');
-                } else if (subRegiaoEscolhida === 'europa-central'){
+                } else if (subRegiaoEscolhida === 'europa-central') {
                     filtrarSubRegioes('Central Europe');
                 };
             });
@@ -262,11 +262,11 @@ function mostrarSubRegioes() { // Função que mostra as sub-regiões existentes
 
                 event.target.classList.add('selecionado');
                 const subRegiaoEscolhida = event.target.getAttribute('value');
-                if (subRegiaoEscolhida === 'polinesia'){
+                if (subRegiaoEscolhida === 'polinesia') {
                     filtrarSubRegioes('Polynesia');
-                } else if (subRegiaoEscolhida === 'melanesia'){
+                } else if (subRegiaoEscolhida === 'melanesia') {
                     filtrarSubRegioes('Melanesia');
-                } else if (subRegiaoEscolhida === 'micronesia'){
+                } else if (subRegiaoEscolhida === 'micronesia') {
                     filtrarSubRegioes('Micronesia');
                 }
             });
@@ -311,21 +311,21 @@ function filtrarTamanhoPopulacao() { // Função para filtrar por interavalos de
     const valorTamanhoPopulacao = document.querySelector('.tamanho-populacao.selecionado')?.getAttribute('value');
     let intervaloPopulacao = {};
     if (!valorTamanhoPopulacao) return;
-    
+
 
     if (valorTamanhoPopulacao === 'menor-1m') {
-        intervaloPopulacao = {min: 0, max: 1000000}; // menos de 1 milhão
+        intervaloPopulacao = { min: 0, max: 1000000 }; // menos de 1 milhão
     } else if (valorTamanhoPopulacao === 'menor-10m') {
-        intervaloPopulacao = {min: 1000000, max: 10000000}; // menos de 10 milhões
+        intervaloPopulacao = { min: 1000000, max: 10000000 }; // menos de 10 milhões
     } else if (valorTamanhoPopulacao === 'menor-100m') {
-        intervaloPopulacao = {min: 10000000, max: 100000000}; // menos de 100 milhões
+        intervaloPopulacao = { min: 10000000, max: 100000000 }; // menos de 100 milhões
     } else if (valorTamanhoPopulacao === 'maior-100m') {
-        intervaloPopulacao = {min: 100000000}; // mais de 100 milhões
+        intervaloPopulacao = { min: 100000000 }; // mais de 100 milhões
     };
 
     const filtrarPopulacao = window.paisesOriginais.filter(pais => {
-        return pais.population >= intervaloPopulacao.min && 
-        (intervaloPopulacao.max ? pais.population <= intervaloPopulacao.max: true);
+        return pais.population >= intervaloPopulacao.min &&
+            (intervaloPopulacao.max ? pais.population <= intervaloPopulacao.max : true);
     });
     mostrarPaises(filtrarPopulacao);
 };
