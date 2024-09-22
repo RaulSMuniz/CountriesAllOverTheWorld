@@ -10,7 +10,6 @@ const obterRestCountries = (pagina = 1) => {
         paisesPaginados = data;
         mostrarPaises();
         atualizarPaginacao()
-        console.log(paisesPaginados)
     });
 };
 
