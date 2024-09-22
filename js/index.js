@@ -10,6 +10,7 @@ const obterRestCountries = (pagina = 1) => {
         paisesPaginados = data;
         mostrarPaises();
         atualizarPaginacao()
+        console.log(paisesPaginados)
     });
 };
 
@@ -25,7 +26,7 @@ const mostrarPaises = (paises = paisesFiltrados.length > 0 ? paisesFiltrados : p
     const todosPaises = div.querySelectorAll('.pais-info');
     todosPaises.forEach(paises => {
         paises.addEventListener('click', () => {
-            const nomeDoPais = paises.querySelector('h2').textContent;
+            const nomeDoPais = paises.getAttribute('nome-ingles');
             window.location.href = `pais.html?name=${encodeURIComponent(nomeDoPais)}`;
         });
     });
@@ -65,12 +66,11 @@ const atualizarPaginacao = (paises = paisesFiltrados.length > 0 ? paisesFiltrado
 
 const obterPaises = (país) => { // Cria o HTML com as informações gerais da Aplicação Web;
     return `
-        <div class="pais-info">
-            <h2>${país.name.common}</h2>
+        <div class="pais-info" nome-ingles="${país.name.common}">
+            <h2>${país.translations.por.common}</h2>
             <img src='${país.flags.png}' class="bandeiras"></img>
             <h3>Capital: ${país.capital ? país.capital : 'None'}</h3>
             <h3>Região: ${país.region}</h3>
-            <h3>${país.population}</h3>
         </div>
     `;
 };
@@ -86,7 +86,7 @@ document.getElementById('form').addEventListener('submit', (event) => {
     // Busca em window.paisesOriginais o pais escolhido.
     // Nota: compara apenas letras minúsculas, previnindo erro de 'case sensivity'.
     const paisBuscado = paisesFiltrados.length > 0 ? paisesFiltrados : window.paisesOriginais.filter(
-        pais => pais.name.common.toLowerCase() == paisEscolhido
+        pais => pais.name.common.toLowerCase() == paisEscolhido || pais.translations.por.common.toLowerCase() == paisEscolhido
     );
     if (paisBuscado.length === 0){
         input.value = '';
