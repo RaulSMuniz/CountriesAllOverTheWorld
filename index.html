@@ -16,6 +16,7 @@
 <body>
     <h1 id="header">Countries All Over the World</h1>
     <div id="inputs-position">
+        <span id="resetar" onclick="resetarFiltros()">Resetar</span>
         <div id="container-filtrar" onclick="mostrarFiltros()" onmouseleave="fecharFiltros()">
             <span id="filtrar">Filtrar</span>
             <div id="container-regioes" onclick="mostrarFiltroReg()" onmouseleave="fecharFiltroReg()">
@@ -33,8 +34,8 @@
                     <span class="sub-regioes" value="americas" onclick="mostrarSubRegioes()">↓ Américas ↓</span>
                     <span class="sub-america" value="america-norte">América do Norte</span>
                     <span class="sub-america" value="america-central">América Central</span>
-                    <span class="sub-america" value="america-sul">América do Sul</span>  
-                    <span class="sub-america" value="america-caribe">Caribe</span>   
+                    <span class="sub-america" value="america-sul">América do Sul</span>
+                    <span class="sub-america" value="america-caribe">Caribe</span>
                 </div>
                 <div class="subs">
                     <span class="sub-regioes" value="africa" onclick="mostrarSubRegioes()">↓ África ↓</span>
@@ -42,7 +43,7 @@
                     <span class="sub-africa" value="africa-central">África Central</span>
                     <span class="sub-africa" value="africa-sul">África do Sul</span>
                     <span class="sub-africa" value="africa-ocidente">África Ocidental</span>
-                    <span class="sub-africa" value="africa-oriente">África Oriental</span>  
+                    <span class="sub-africa" value="africa-oriente">África Oriental</span>
                 </div>
                 <div class="subs">
                     <span class="sub-regioes" value="asia" onclick="mostrarSubRegioes()">↓ Ásia ↓</span>
@@ -50,7 +51,7 @@
                     <span class="sub-asia" value="asia-sul">Ásia do Sul</span>
                     <span class="sub-asia" value="asia-oriente">Ásia Oriental</span>
                     <span class="sub-asia" value="asia-ocidente">Ásia Ocidental</span>
-                    <span class="sub-asia" value="asia-sudeste">Ásia Sudeste</span>   
+                    <span class="sub-asia" value="asia-sudeste">Ásia Sudeste</span>
                 </div>
                 <div class="subs">
                     <span class="sub-regioes" value="europa" onclick="mostrarSubRegioes()">↓ Europa ↓</span>
@@ -66,7 +67,7 @@
                     <span class="oceania" value="micronesia">Micronésia</span>
                     <span class="oceania" value="melanesia">Melanésia</span>
                 </div>
-                
+
             </div>
             <div id="container-populacao" onclick="mostrarFiltroP()" onmouseleave="fecharFiltroP()">
                 <span class="filtrado" id="populacao" value="populacao">↓ População ↓ </span>
@@ -75,7 +76,6 @@
                 <span class="tamanho-populacao" value="menor-100m">Até 100 milhões de habitantes</span>
                 <span class="tamanho-populacao" value="maior-100m">Mais de 100 milhões de habitantes</span>
             </div>
-
         </div>
         <div id="container-ordenacao" onclick="mostrarOrdenacao()" onmouseleave="fecharOrdenacao()">
             <span id="ordenar">↓ Ordenar por ↓</span>
@@ -85,16 +85,21 @@
             <span class="ordenados" value="area-pais-c">Área do País <br>(crescente)</span>
             <span class="ordenados" value="area-pais-d">Área do País <br>(decrescente)</span>
         </div>
-        <input type="text" id="buscar-países" placeholder="Buscar País">
-        <input type="button" value="Buscar" id="buscar">
-
-
+        
+        <form action="" id="form">
+            <input type="text" id="buscar-países" placeholder="Buscar País">
+            <input type="submit" value="Buscar" id="buscar">
+        </form>
     </div>
 
     <div class="países" id="países">
     </div>
-
-    <script src="js/restfulapi.js"></script>
+    <div class="paginas" id="paginacao">
+        <button type="button" id="anterior">Anterior</button>
+        <span>Página 1 / ?</span>
+        <button type="button" id="proximo">Próximo</button>    
+    </div>
+    <script src="js/index.js"></script>
 </body>
 
 </html>

@@ -8,7 +8,7 @@ body {
     overflow-y: scroll;
     overflow-x: hidden;
 }
-body::-webkit-scrollbar {
+body::-webkit-scrollbar { /* Esconde a barra de scroll */
     display: none;
 }
 #header {
@@ -75,7 +75,7 @@ body::-webkit-scrollbar {
     width: fit-content;
     height: 0;
     padding: 1px;
-    margin-right: 900px;
+    margin-right: 920px;
 }
 
 #container-filtrar {
@@ -102,7 +102,7 @@ body::-webkit-scrollbar {
     border: 1px 1px 0 1px solid rgb(110, 96, 96);
     transition: 0.5s;
 }
-.filtrado:hover{
+.filtrado:hover{ /* Estiliza o que aontece ao passar o mouse por cima desse conteúdo */
     background-color: rgb(218, 208, 208);
     font-size: 14pt;
     border-radius: 5px;
@@ -132,7 +132,26 @@ body::-webkit-scrollbar {
     transition: 0.5s ease-in-out;
     cursor: pointer;
 }
-.regioes{
+#resetar{ /* Estiliza o conteúdo de 'Resetar' */ 
+    position: absolute;
+    font-size: 16pt;
+    width: 140px;
+    background-color: rgb(231, 224, 224);
+    color: rgb(84, 97, 107);
+    border: 1px 1px 0 1px solid rgb(219, 212, 212);
+    border-radius: 5px 5px 0 0;
+    transition: 0.5s ease-in-out;
+    padding: 1px;
+    margin-right: 630px;
+}
+#resetar:hover{ /* Estiliza o que ocorre ao passar o mouse por cima de 'Resetar'*/
+    background-color: rgb(218, 208, 208);
+    border-color: rgb(179, 166, 166);
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+
+.regioes{ /* Estiliza o conteúdo de opção de continentes */
     font-size: 12pt;
     display: none;
     flex-direction: column;
@@ -143,7 +162,7 @@ body::-webkit-scrollbar {
     border: 1px 1px 0 1px solid rgb(110, 96, 96);
     transition: 0.5s;
 }
-.regioes:hover {
+.regioes:hover { /* Estiliza o que ocorre ao passar por cima desse conteúdo */
     background-color: rgb(218, 208, 208);
     font-size: 14pt;
     border-radius: 5px;
@@ -151,7 +170,7 @@ body::-webkit-scrollbar {
     cursor: pointer;
     border: 1px solid rgb(180, 169, 169)
 }
-.sub-regioes {
+.sub-regioes { /* Estiliza as sub-regiões continentais */
     font-size: 12pt;
     display: none;
     flex-direction: column;
@@ -162,7 +181,7 @@ body::-webkit-scrollbar {
     border: 1px 1px 0 1px solid rgb(110, 96, 96);
     transition: 0.5s;
 }
-.sub-regioes:hover{
+.sub-regioes:hover{ /* Estiliza o que ocorre ao passar o mouse por cima do conteúdo */
     background-color: rgb(218, 208, 208);
     font-size: 14pt;
     border-radius: 5px;
@@ -170,7 +189,7 @@ body::-webkit-scrollbar {
     cursor: pointer;
     border: 1px solid rgb(180, 169, 169);
 }
-.oceania{
+.oceania{ /* Estiliza a opção oceania */
     font-size: 12pt;
     display: none;
     flex-direction: column;
@@ -181,7 +200,7 @@ body::-webkit-scrollbar {
     border: 1px 1px 0 1px solid rgb(110, 96, 96);
     transition: 0.5s;
 }
-.oceania:hover{
+.oceania:hover{ /* Estiliza o que ocorre ao passar o mouse por esse conteúdo */
     background-color: rgb(218, 208, 208);
     font-size: 14pt;
     border-radius: 5px;
@@ -190,7 +209,7 @@ body::-webkit-scrollbar {
     border: 1px solid rgb(180, 169, 169);
 }
 
-.sub-europa{
+.sub-europa{ /* Estiliza a opção sub-europa */
     font-size: 12pt;
     display: none;
     flex-direction: column;
@@ -201,7 +220,7 @@ body::-webkit-scrollbar {
     border: 1px 1px 0 1px solid rgb(110, 96, 96);
     transition: 0.5s;
 }
-.sub-europa:hover{
+.sub-europa:hover{  /* Estiliza o que ocorre ao passar o mouse por esse conteúdo */
     background-color: rgb(218, 208, 208);
     font-size: 14pt;
     border-radius: 5px;
@@ -209,7 +228,7 @@ body::-webkit-scrollbar {
     cursor: pointer;
     border: 1px solid rgb(180, 169, 169);
 }
-.sub-asia{
+.sub-asia{ /* Estiliza a opção sub-asia */
     font-size: 12pt;
     display: none;
     flex-direction: column;
@@ -220,7 +239,7 @@ body::-webkit-scrollbar {
     border: 1px 1px 0 1px solid rgb(110, 96, 96);
     transition: 0.5s;
 }
-.sub-asia:hover{
+.sub-asia:hover{ /* Estiliza o que ocorre ao passar o mouse por esse conteúdo */
     background-color: rgb(218, 208, 208);
     font-size: 14pt;
     border-radius: 5px;
@@ -228,7 +247,7 @@ body::-webkit-scrollbar {
     cursor: pointer;
     border: 1px solid rgb(180, 169, 169);
 }
-.sub-america{
+.sub-america{ /* Estiliza a opção sub-america */
     font-size: 12pt;
     display: none;
     flex-direction: column;
@@ -239,7 +258,7 @@ body::-webkit-scrollbar {
     border: 1px 1px 0 1px solid rgb(110, 96, 96);
     transition: 0.5s;
 }
-.sub-america:hover{
+.sub-america:hover{ /* Estiliza o que ocorre ao passar o mouse por esse conteúdo */
     background-color: rgb(218, 208, 208);
     font-size: 14pt;
     border-radius: 5px;
@@ -247,7 +266,7 @@ body::-webkit-scrollbar {
     cursor: pointer;
     border: 1px solid rgb(180, 169, 169);
 }
-.sub-africa{
+.sub-africa{ /* Estiliza a opção sub-africa */
     font-size: 12pt;
     display: none;
     flex-direction: column;
@@ -258,7 +277,7 @@ body::-webkit-scrollbar {
     border: 1px 1px 0 1px solid rgb(110, 96, 96);
     transition: 0.5s;
 }
-.sub-africa:hover{
+.sub-africa:hover{ /* Estiliza o que ocorre ao passar o mouse por esse conteúdo */
     background-color: rgb(218, 208, 208);
     font-size: 14pt;
     border-radius: 5px;
@@ -266,7 +285,7 @@ body::-webkit-scrollbar {
     cursor: pointer;
     border: 1px solid rgb(180, 169, 169);
 }
-.tamanho-populacao {
+.tamanho-populacao { /* Estiliza a opção tamanho-população */
     font-size: 12pt;
     display: none;
     flex-direction: column;
@@ -277,7 +296,7 @@ body::-webkit-scrollbar {
     border: 1px 1px 0 1px solid rgb(110, 96, 96);
     transition: 0.3s;
 }
-.tamanho-populacao:hover {
+.tamanho-populacao:hover { /* Estiliza o que ocorre ao passar o mouse por esse conteúdo */
     background-color: rgb(218, 208, 208);
     border-radius: 5px;
     height: 60px;
@@ -338,6 +357,7 @@ body::-webkit-scrollbar {
     /* Listagem dos Países na Aplicação */
     max-width: 1240px;
     margin: 20px auto;
+    margin-bottom: 5px;
     display: grid;
     gap: 15px;
     grid-template-columns: repeat(3, 1fr);
@@ -346,14 +366,101 @@ body::-webkit-scrollbar {
 .pais-info {
     /* Informações internas da Listagem dos Países */
     border: 1px solid rgb(224, 194, 154);
+    border-radius: 5px;
+    background-color: rgb(255, 225, 179);
+    text-align: center;
+    color: rgb(94, 0, 0);
+    padding: 15px;
+    transition: 0.5s;
+}
+.pais-info:hover {  /* Estiliza o que ocorre ao passar o mouse por esse conteúdo */
+    font-size: 14pt;
+    background-color: rgb(255, 207, 135);
+    color: rgb(63, 15, 15);
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.país{ /* Estiliza a div do país listado em 'pais.html' */
+    max-width: 1240px;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+}
+.pais-unico {
+    /* Estiliza o país listado em 'pais.html' */
+    border: 1px solid rgb(224, 194, 154);
+    width: 368px;
+    border-radius: 5px;
     background-color: rgb(255, 225, 179);
     text-align: center;
     color: rgb(94, 0, 0);
     padding: 15px;
 }
-
+#voltar { /* Estiliza o botão de voltar em 'país.html' */
+    display: flex;
+    flex-direction: row;
+    border: 1px solid;
+    border-radius: 5px;
+    background-color: rgb(231, 224, 224);
+    color: rgb(84, 97, 107);
+    margin: 10px auto;
+    transition: 0.5s;
+}
+#voltar:hover{ /* Estiliza o que ocorre ao passar o mouse por cima de 'Voltar' */
+    background-color: rgb(218, 208, 208);
+    border-color: rgb(179, 166, 166);
+    transition: 0.5s;
+}
+a{ /* Estiliza o link de redirecionamento */
+    display: flex;
+    width: 380px;
+    height: 50px;
+    font-size: 14pt;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(231, 224, 224);
+    color: rgb(84, 97, 107);
+    text-decoration: none;
+    transition: 0.5s;
+}
+a:hover { /* Estiliza o que ocorre ao passar o mouse por cima do link redirecionamento */
+    font-size: 18pt;
+    background-color: rgb(218, 208, 208);
+    border-color: rgb(179, 166, 166);
+    transition: 0.5s;
+}
 .bandeiras { /* Definição de tamanho e posição para as Bandeiras dos Países */
     width: 250px;
     height: 150px;
     margin-top: 5px;
+}
+.paginas{ /* Estiliza a div que contém o botão anterior, próximo e a quantidade de páginas */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.paginas span { /* Estiliza a quantidade de páginas */
+    color: rgb(94, 0, 0);
+    font-weight: 700;
+}
+.paginas button{ /* Estiliza o botão anterior e próximo */
+    font-size: 12pt;
+    margin-top: 0;
+    margin: 5px;
+    width: 500px;
+    height: 50px;
+    background-color: rgb(209, 209, 200);
+    border: 1px solid rgb(209, 209, 200);
+    border-radius: 5px;
+    color: rgb(84, 97, 107);
+    transition: 0.5s;
+} 
+.paginas button:hover{ /* Estiliza o que ocorre ao passar o mouse por cima dos botões */
+    font-size: 18pt;
+    background-color: rgb(190, 190, 190);
+    border-color: rgb(190, 190, 190);
+    color: rgb(67, 77, 85);
+    cursor: pointer;
+    transition: 0.5s;
 }

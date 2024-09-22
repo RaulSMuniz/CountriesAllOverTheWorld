@@ -1,21 +1,66 @@
-const obterRestCountries = () => {
+let paginaAtual = 1;
+const itensPorPagina = 3;
+let paisesPaginados = [];
+let paisesFiltrados = [];
+
+const obterRestCountries = (pagina = 1) => {
     // obter URL da API Rest;
-    fetch('https://restcountries.com/v3.1/all').then(res => res.json()).then(data => {
-        window.paisesOriginais = [...data];
-        mostrarPaises(data);
+    fetch(`https://restcountries.com/v3.1/all`).then(res => res.json()).then(data => {
+        window.paisesOriginais = data; // Impede da paginação acumular
+        paisesPaginados = data;
+        mostrarPaises();
+        atualizarPaginacao()
     });
 };
 
-const mostrarPaises = paises => {
-    /* Em mostrarPaises, utiliza da arrow function com parâmetro 'paises' que contém o Array 
-    com informações de todos os países (utilizado em .then(data => mostrarPaises(data)));
+const mostrarPaises = (paises = paisesFiltrados.length > 0 ? paisesFiltrados : paisesPaginados) => {
+    const inicio = (paginaAtual - 1) * itensPorPagina;
+    const fim = inicio + itensPorPagina;
+    const paisesParaMostrar = paises.slice(inicio, fim);
 
-    Em countryHTML, se reutiliza de paises para percorrer tudo e armazenar as informações na
-    variável dita anteriormente (countryHTML);
-    */
-    const countryHTML = paises.map(país => obterPaises(país));
-    const div = document.getElementById('países'); // Obtém a div em que os países serão inseridos;
-    div.innerHTML = countryHTML.join(' '); // Mostra o countryHTML e retira as vírgulas;
+    const countryHTML = paisesParaMostrar.map(país => obterPaises(país)).join(' ');
+    const div = document.getElementById('países');
+    div.innerHTML = countryHTML;
+
+    const todosPaises = div.querySelectorAll('.pais-info');
+    todosPaises.forEach(paises => {
+        paises.addEventListener('click', () => {
+            const nomeDoPais = paises.querySelector('h2').textContent;
+            window.location.href = `pais.html?name=${encodeURIComponent(nomeDoPais)}`;
+        });
+    });
+};
+
+const atualizarPaginacao = (paises = paisesFiltrados.length > 0 ? paisesFiltrados : window.paisesOriginais) => {
+    const totalPaginas = Math.ceil(paises.length / itensPorPagina);
+    const paginacaoDiv = document.getElementById('paginacao');
+
+    // Atualiza o texto da página atual
+    paginacaoDiv.querySelector('span').textContent = `Página ${paginaAtual} / ${totalPaginas}`;
+
+    // Verifica se existem botões de anterior e próximo
+    const btnAnterior = paginacaoDiv.querySelector('#anterior');
+    const btnProximo = paginacaoDiv.querySelector('#proximo');
+
+    // Habilita ou desabilita os botões
+    btnAnterior.disabled = paginaAtual === 1;
+    btnProximo.disabled = paginaAtual === totalPaginas;
+
+    btnAnterior.onclick = () => {
+        if (paginaAtual > 1) {
+            paginaAtual--;
+            mostrarPaises(paises);
+            atualizarPaginacao(paises);
+        }
+    };
+
+    btnProximo.onclick = () => {
+        if (paginaAtual < totalPaginas) {
+            paginaAtual++;
+            mostrarPaises(paises);
+            atualizarPaginacao(paises);
+        }
+    };
 };
 
 const obterPaises = (país) => { // Cria o HTML com as informações gerais da Aplicação Web;
@@ -25,36 +70,39 @@ const obterPaises = (país) => { // Cria o HTML com as informações gerais da A
             <img src='${país.flags.png}' class="bandeiras"></img>
             <h3>Capital: ${país.capital ? país.capital : 'None'}</h3>
             <h3>Região: ${país.region}</h3>
-            <h3>Sub-região: ${país.subregion ? país.subregion : 'None'}</h3>
+            <h3>${país.population}</h3>
         </div>
     `;
 };
 
-function ordenarPaises() { // Função para ordenar os países;
-    const valorOrdenacao = document.querySelector('.ordenados.selecionado')?.getAttribute('value');
-    if (!valorOrdenacao) return;
+// Abaixo está a função para buscar os países pelo nome
+document.getElementById('form').addEventListener('submit', (event) => {
+    // Impede a página de recarregar quando buscar um valor.
+    event.preventDefault();
+    // Armazena o input
+    const input = document.getElementById('buscar-países');
+    // Armazena o valor do input em letras minúsculas e sem espaços extras.
+    const paisEscolhido = input.value.trim().toLowerCase();
+    // Busca em window.paisesOriginais o pais escolhido.
+    // Nota: compara apenas letras minúsculas, previnindo erro de 'case sensivity'.
+    const paisBuscado = paisesFiltrados.length > 0 ? paisesFiltrados : window.paisesOriginais.filter(
+        pais => pais.name.common.toLowerCase() == paisEscolhido
+    );
+    if (paisBuscado.length === 0){
+        input.value = '';
+        input.placeholder = 'País não encontrado ou inválido.';
+    } else {
+        input.value = '';
+        paginaAtual = 1;
+        mostrarPaises(paisBuscado);
+        atualizarPaginacao(paisBuscado);
+    };
+    setTimeout(() => {
+            input.placeholder = 'Buscar País.';
+        }, 2000);
+});
 
-    window.paisesOriginais.sort((a, b) => {
-        if (valorOrdenacao === 'nome-pais') {
-            // Ordem Alfabética do nome comum;
-            return a.name.common.localeCompare(b.name.common);
-        } else if (valorOrdenacao === 'populacao-crescente') {
-            // Ordenação crescente de população;
-            return a.population - b.population;
-        } else if (valorOrdenacao === 'populacao-decrescente') {
-            // Ordem Decrescente de População
-            return b.population - a.population;
-        } else if (valorOrdenacao === 'area-pais-c') {
-            // Ordem Crescente da área;
-            return a.area - b.area;
-        } else if (valorOrdenacao === 'area-pais-d') {
-            // Ordem Decrescente da área;
-            return b.area - a.area;
-        };
-    });
-    mostrarPaises(window.paisesOriginais);
-};
-
+// Abaixo estão todas as funções sobre o menu de ordenação
 function mostrarOrdenacao() { // Função para mostrar o menu de ordenação;
     const mostrar = document.getElementsByClassName('ordenados');
     for (let i = 0; i < mostrar.length; i++) {
@@ -75,6 +123,42 @@ function fecharOrdenacao() { // Função para fechar o menu de ordenação;
         fechar[i].style.display = 'none';
     };
 };
+
+function ordenarPaises() { 
+    const valorOrdenacao = document.querySelector('.ordenados.selecionado')?.getAttribute('value');
+    if (!valorOrdenacao) return;
+
+    const paisesParaOrdenar = paisesFiltrados.length > 0 ? paisesFiltrados : window.paisesOriginais;
+
+    paisesParaOrdenar.sort((a, b) => {
+        if (valorOrdenacao === 'nome-pais') {
+            // Ordem Alfabética do nome comum;
+            paginaAtual = 1;
+            return a.name.common.localeCompare(b.name.common);
+        } else if (valorOrdenacao === 'populacao-crescente') {
+            // Ordenação crescente de população;
+            paginaAtual = 1;
+            return a.population - b.population;
+        } else if (valorOrdenacao === 'populacao-decrescente') {
+            // Ordem Decrescente de População;
+            paginaAtual = 1;
+            return b.population - a.population;
+        } else if (valorOrdenacao === 'area-pais-c') {
+            // Ordem Crescente da área;
+            paginaAtual = 1;
+            return a.area - b.area;
+        } else if (valorOrdenacao === 'area-pais-d') {
+            // Ordem Decrescente da área;
+            paginaAtual = 1;
+            return b.area - a.area;
+        };
+    });
+    // Exibe os países ordenados (filtrados ou não)
+    mostrarPaises(paisesParaOrdenar);
+    // Atualiza a paginação com base nos países ordenados
+    atualizarPaginacao(paisesParaOrdenar); 
+};
+
 
 /* Abaixo estão todas as funções sobre o Menu de Filtros */
 
@@ -296,14 +380,18 @@ function fecharFiltroP() { // Fecha o filtro de população
     }
 }
 
-function filtrarRegioes(regiao) { // Função para filtrar por continente;
-    const filtrarRegiao = window.paisesOriginais.filter(pais => pais.region === regiao);
-    mostrarPaises(filtrarRegiao);
+function filtrarRegioes(regiao) {
+    const paisesFiltrados = window.paisesOriginais.filter(pais => pais.region === regiao);
+    paginaAtual = 1;
+    mostrarPaises(paisesFiltrados);
+    atualizarPaginacao(paisesFiltrados);
 }
 
 function filtrarSubRegioes(subRegiao) { // Função para filtrar por sub-regiões de continente;
-    const filtrarSubRegiao = window.paisesOriginais.filter(pais => pais.subregion === subRegiao);
-    mostrarPaises(filtrarSubRegiao);
+    const paisesFiltrados = window.paisesOriginais.filter(pais => pais.subregion === subRegiao);
+    paginaAtual = 1;
+    mostrarPaises(paisesFiltrados);
+    atualizarPaginacao(paisesFiltrados);
 };
 
 // Filtro por intervalo de população finalizado;
@@ -323,10 +411,17 @@ function filtrarTamanhoPopulacao() { // Função para filtrar por interavalos de
         intervaloPopulacao = { min: 100000000 }; // mais de 100 milhões
     };
 
-    const filtrarPopulacao = window.paisesOriginais.filter(pais => {
+    const paisesFiltrados = window.paisesOriginais.filter(pais => {
         return pais.population >= intervaloPopulacao.min &&
             (intervaloPopulacao.max ? pais.population <= intervaloPopulacao.max : true);
     });
-    mostrarPaises(filtrarPopulacao);
+    mostrarPaises(paisesFiltrados);
+    atualizarPaginacao(paisesFiltrados);
 };
-obterRestCountries(); // chama a função inicial para que os dados sejam devidamente distribuídos;
+
+// Abaixo está a função que reseta todos os filtros/ordenações
+function resetarFiltros(){
+    window.history.go(0);
+};
+
+obterRestCountries(paginaAtual); // chama a função inicial para que os dados sejam devidamente distribuídos;
