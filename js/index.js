@@ -414,6 +414,7 @@ function filtrarTamanhoPopulacao() { // Função para filtrar por interavalos de
         return pais.population >= intervaloPopulacao.min &&
             (intervaloPopulacao.max ? pais.population <= intervaloPopulacao.max : true);
     });
+    paginaAtual = 1;
     mostrarPaises(paisesFiltrados);
     atualizarPaginacao(paisesFiltrados);
 };
