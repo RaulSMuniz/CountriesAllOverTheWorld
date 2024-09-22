@@ -93,6 +93,7 @@ body::-webkit-scrollbar { /* Esconde a barra de scroll */
 .filtrado {
     /* Estiliza o conteúdo que aparece ao clicar em Filtrar */
     font-size: 12pt;
+    font-weight: 600;
     display: none;
     flex-direction: column;
     justify-content: center;
