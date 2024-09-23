@@ -20,18 +20,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
         return `
             <div class="pais-unico">
-                <h2>${país.name.official}</h2>
+                <h2 class="nome-pais">${país.name.official}</h2>
                 <img src='${país.flags.png}' class="bandeiras"></img>
-                <h3>Capital: ${país.capital ? país.capital : 'N/A'}</h3>
-                <h3>Região: ${país.region}</h3>
-                <h3>Sub-região: ${país.subregion ? país.subregion : 'N/A'}</h3>
-                <h3>População: ${país.population.toLocaleString('pt-BR')}</h3>
-                <h3>Área: ${país.area.toLocaleString('pt-BR')} km²</h3>
-                <h3>Idiomas falados: ${idiomas ? idiomas : 'N/A'}</h3>
-                <h3>Moedas: ${moedas} </h3>
-                <h3>Fuso horário: ${país.timezones.join(', ')}</h3>
-                <h3>Domínio de Internet: ${país.tld.join(', ') ? país.tld : 'N/A'}</h3>
-                <h3>Código de discagem internacional: ${idd}</h3>
+                <div class="info-geral">
+                    <h3>Capital: ${país.capital ? país.capital : 'N/A'}</h3>
+                    <h3>Região: ${país.region}</h3>
+                    <h3>Sub-região: ${país.subregion ? país.subregion : 'N/A'}</h3>
+                    <h3>População: ${país.population.toLocaleString('pt-BR')} habitantes</h3>
+                    <h3>Área: ${país.area.toLocaleString('pt-BR')} km²</h3>
+                    <h3>Idiomas falados: ${idiomas ? idiomas : 'N/A'}</h3>
+                    <h3>Moedas: ${moedas} </h3>
+                    <h3>Fuso horário: ${país.timezones.join(', ')}</h3>
+                    <h3>Domínio de Internet: ${país.tld.join(', ') ? país.tld : 'N/A'}</h3>
+                    <h3>Código de discagem internacional: ${idd}</h3>
+                </div>
             </div>  
         `;
     };
