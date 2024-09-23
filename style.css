@@ -705,7 +705,7 @@ a:hover { /* Estiliza o que ocorre ao passar o mouse por cima do link redirecion
     }
     #container-filtrar {
         margin-top: 50px;
-        margin-right: -215px;
+        margin-right: -225px;
         transition: 0.5s;
     }
     #filtrar{
@@ -715,7 +715,7 @@ a:hover { /* Estiliza o que ocorre ao passar o mouse por cima do link redirecion
     #resetar{
         width: 200px;
         margin-top: 5px;
-        margin-left: 745px;
+        margin-left: 750px;
         transition: 0.5s;
     }
     .paginas{
