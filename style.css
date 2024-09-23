@@ -3,7 +3,7 @@ body {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: rgb(12, 12, 12);
+    background-color: rgb(20, 20, 20);
     overflow-y: scroll;
     overflow-x: hidden;
 }
@@ -22,7 +22,8 @@ body::-webkit-scrollbar {
     text-align: center;
     padding: 10px;
 }
-.nome-pais{
+
+.nome-pais {
     font-family: "Raleway";
 }
 
@@ -482,7 +483,7 @@ body::-webkit-scrollbar {
 
 .pais-unico {
     /* Estiliza o país listado em 'pais.html' */
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     width: 368px;
     border: 1px solid rgb(255, 255, 255);
     border-radius: 5px;
@@ -503,7 +504,8 @@ body::-webkit-scrollbar {
     margin: 10px auto;
     transition: 0.5s;
 }
-#voltar:hover{
+
+#voltar:hover {
     background-color: rgb(53, 53, 53);
     border: 1px solid rgb(255, 255, 255);
     color: rgb(255, 255, 255);
@@ -586,7 +588,7 @@ a {
         padding: 0 10px 0 10px;
         transition: 0.5s;
     }
-    
+
     #container-ordenacao {
         margin-right: 470px;
         transition: 0.5s;
@@ -848,9 +850,7 @@ a {
 /* Abaixo estão as fontes utilizadas */
 
 .raleway {
-  font-family: "Raleway";
-  font-weight: normal;
-  font-style: normal;
+    font-family: "Raleway";
+    font-weight: normal;
+    font-style: normal;
 }
-
-  
