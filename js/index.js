@@ -122,9 +122,50 @@ function fecharOrdenacao() { // Função para fechar o menu de ordenação;
         fechar[i].style.display = 'none';
     };
 };
+function mostrarPopulacao() {
+    const mostrar = document.getElementsByClassName('populacao');
+    for (let i = 0; i < mostrar.length; i++) {
+        mostrar[i].style.display = 'flex';
+        mostrar[i].addEventListener('click', (event) => {
+            const elementosSelecionados = document.querySelectorAll('.ordenados.selecionado, .populacao.selecionado, .area-pais.selecionado');
+            elementosSelecionados.forEach(el => el.classList.remove('selecionado'));
+
+            event.target.classList.add('selecionado');
+            ordenarPaises();
+        });
+    }
+}
+
+function fecharPopulacao() {
+    const fechar = document.getElementsByClassName('populacao');
+    for (let i = 0; i < fechar.length; i++) {
+        fechar[i].style.display = 'none';
+    }
+}
+
+function mostrarArea() {
+    const mostrar = document.getElementsByClassName('area-pais');
+    for (let i = 0; i < mostrar.length; i++) {
+        mostrar[i].style.display = 'flex';
+        mostrar[i].addEventListener('click', (event) => {
+            const elementosSelecionados = document.querySelectorAll('.ordenados.selecionado, .populacao.selecionado, .area-pais.selecionado');
+            elementosSelecionados.forEach(el => el.classList.remove('selecionado'));
+
+            event.target.classList.add('selecionado');
+            ordenarPaises();
+        });
+    };
+};
+
+function fecharArea() {
+    const fechar = document.getElementsByClassName('area-pais');
+    for (let i = 0; i < fechar.length; i++){
+        fechar[i].style.display = 'none';
+    };
+};
 
 function ordenarPaises() { 
-    const valorOrdenacao = document.querySelector('.ordenados.selecionado')?.getAttribute('value');
+    const valorOrdenacao = document.querySelector('.ordenados.selecionado, .populacao.selecionado, .area-pais.selecionado')?.getAttribute('value');
     if (!valorOrdenacao) return;
 
     const paisesParaOrdenar = paisesFiltrados.length > 0 ? paisesFiltrados : window.paisesOriginais;
@@ -208,7 +249,6 @@ function fecharFiltroReg() { // Fecha o menu de regiões (continentes)
 };
 function mostrarFiltroSub() { // Função que mostra as opções de Regiões para só então mostrar sub-região
     const mostrar = document.getElementsByClassName('sub-regioes');
-    const mostrarOceania = document.getElementsByClassName('oceania');
     for (let i = 0; i < mostrar.length; i++) { // Loop que mostra opções de Sub-Regiões
         mostrar[i].style.display = 'flex';
         mostrar[i].addEventListener('click', (event) => {

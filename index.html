@@ -18,7 +18,7 @@
     <div id="inputs-position">
         <span id="resetar" onclick="resetarFiltros()">Resetar</span>
         <div id="container-filtrar" onclick="mostrarFiltros()" onmouseleave="fecharFiltros()">
-            <span id="filtrar">Filtrar</span>
+            <span id="filtrar">↓ Filtrar ↓</span>
             <div id="container-regioes" onclick="mostrarFiltroReg()" onmouseleave="fecharFiltroReg()">
                 <span class="filtrado" id="regiao" value="regiao">↓ Região ↓</span>
                 <span class="regioes" value="regiao-africa">África</span>
@@ -80,10 +80,17 @@
         <div id="container-ordenacao" onclick="mostrarOrdenacao()" onmouseleave="fecharOrdenacao()">
             <span id="ordenar">↓ Ordenar por ↓</span>
             <span class="ordenados" value="nome-pais">Nome do País <br>(a -> z)</span>
-            <span class="ordenados" value="populacao-crescente">População <br>(crescente)</span>
-            <span class="ordenados" value="populacao-decrescente">População <br>(decrescente)</span>
-            <span class="ordenados" value="area-pais-c">Área do País <br>(crescente)</span>
-            <span class="ordenados" value="area-pais-d">Área do País <br>(decrescente)</span>
+            <div id="ordenacao" onclick="mostrarPopulacao()" onmouseleave="fecharPopulacao()">
+                <span class="ordenados" value="populacao" >↓ População ↓</span>
+                <span class="populacao" value="populacao-crescente">Crescente</span>
+                <span class="populacao" value="populacao-decrescente">Decrescente</span>
+            </div>
+            <div class="ordenacao" onclick="mostrarArea()" onmouseleave="fecharArea()">
+                <span class="ordenados" value="area-pais">↓ Área do País ↓</span>
+                <span class="area-pais" value="area-pais-c">Crescente</span>
+                <span class="area-pais" value="area-pais-d">Decrescente</span>
+            </div>
+            
         </div>
         
         <form action="" id="form">
