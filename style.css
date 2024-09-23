@@ -420,7 +420,6 @@ body::-webkit-scrollbar { /* Esconde a barra de scroll */
     transition: 0.5s;
 }
 .pais-info:hover {  /* Estiliza o que ocorre ao passar o mouse por esse conteúdo */
-    font-size: 14pt;
     background-color: rgb(255, 207, 135);
     color: rgb(63, 15, 15);
     cursor: pointer;
