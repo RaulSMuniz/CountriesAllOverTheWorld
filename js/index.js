@@ -78,6 +78,13 @@ const obterPaises = (país) => { // Cria o HTML com as informações gerais da A
 };
 
 // Abaixo está a função para buscar os países pelo nome
+document.getElementById('form').addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        event.preventDefault(); 
+        // Impede que a tecla Enter recarregue a página ou envie o formulário
+    }
+});
+
 document.getElementById('form').addEventListener('input', (event) => {
     // Impede a página de recarregar quando buscar um valor.
     event.preventDefault();
