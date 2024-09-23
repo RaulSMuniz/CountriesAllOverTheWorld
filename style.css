@@ -252,6 +252,7 @@ body::-webkit-scrollbar { /* Esconde a barra de scroll */
 
 .sub-europa{ /* Estiliza a opção sub-europa */
     font-size: 12pt;
+    font-weight: 600;
     display: none;
     flex-direction: column;
     justify-content: center;
@@ -271,6 +272,7 @@ body::-webkit-scrollbar { /* Esconde a barra de scroll */
 }
 .sub-asia{ /* Estiliza a opção sub-asia */
     font-size: 12pt;
+    font-weight: 600;
     display: none;
     flex-direction: column;
     justify-content: center;
@@ -290,6 +292,7 @@ body::-webkit-scrollbar { /* Esconde a barra de scroll */
 }
 .sub-america{ /* Estiliza a opção sub-america */
     font-size: 12pt;
+    font-weight: 600;
     display: none;
     flex-direction: column;
     justify-content: center;
@@ -309,6 +312,7 @@ body::-webkit-scrollbar { /* Esconde a barra de scroll */
 }
 .sub-africa{ /* Estiliza a opção sub-africa */
     font-size: 12pt;
+    font-weight: 600;
     display: none;
     flex-direction: column;
     justify-content: center;
@@ -328,6 +332,7 @@ body::-webkit-scrollbar { /* Esconde a barra de scroll */
 }
 .tamanho-populacao { /* Estiliza a opção tamanho-população */
     font-size: 12pt;
+    font-weight: 600;
     display: none;
     flex-direction: column;
     justify-content: center;
@@ -504,4 +509,217 @@ a:hover { /* Estiliza o que ocorre ao passar o mouse por cima do link redirecion
     color: rgb(67, 77, 85);
     cursor: pointer;
     transition: 0.5s;
+}
+
+/* Abaixo estão as funções de responsividade */
+
+/* Responsivo para Laptop */ 
+@media (min-width: 1024px) and (max-width: 1440px){
+    .países {
+        max-width: 1000px;
+        transition: 0.5s;
+    }
+    #ordenar{
+        font-size: 15pt;
+        transition: 0.5s;
+    }
+    #container-ordenacao {
+        margin-right: 880px;
+        transition: 0.5s;
+    }
+    .ordenados {
+        font-size: 11pt;
+        width: 100px;
+        transition: 0.5s;
+    }
+    .ordenados:hover{
+        font-size: 11pt;
+        transition: 0.5s;
+    }
+    .populacao{
+        font-size: 11pt;
+        width: 100px;
+        transition: 0.5s;
+    }
+    .area-pais{
+        font-size: 11pt;
+        width: 100px;
+        transition: 0.5s;
+    }
+    #container-filtrar {
+        margin-left: 1830px;
+        transition: 0.5s;
+    }
+    .paginas{
+        justify-content: center;
+        transition: 0.5s;
+    }
+}
+
+/* Responsivo para Tablet */
+@media (min-width: 768px) and (max-width: 1024px){
+    #buscar-países{
+        width: 150px;
+    }
+    .países {
+        max-width: 750px;
+        grid-template-columns: repeat(2, 1fr);
+        transition: 0.5s;
+    }
+    #ordenar{
+        font-size: 15pt;
+        transition: 0.5s;
+    }
+    #container-ordenacao {
+        margin-right: 370px;
+        transition: 0.5s;
+    }
+    .ordenados {
+        font-size: 11pt;
+        width: 100px;
+        transition: 0.5s;
+    }
+    .ordenados:hover{
+        font-size: 11pt;
+        transition: 0.5s;
+    }
+    .populacao{
+        font-size: 11pt;
+        width: 100px;
+        transition: 0.5s;
+    }
+    .area-pais{
+        font-size: 11pt;
+        width: 100px;
+        transition: 0.5s;
+    }
+    #container-filtrar {
+        margin-right: 630px;
+        transition: 0.5s;
+    }
+    #resetar{
+        margin-left: 1050px;
+        transition: 0.5s;
+    }
+    .paginas{
+        justify-content: center;
+        transition: 0.5s;
+    }
+}
+/* Responsivo para mobile (do menor possível) */
+@media (min-width: 320px) and (max-width: 768px){
+    #header{
+        font-size: 14pt;
+        align-items: center;
+        transition: 0.5s;
+    }
+    .país{
+        max-width: 300px;
+        transition: 0.5s;
+    }
+    a {
+        width: 280px;
+        transition: 0.5s;
+    }
+    #form input{
+        display: flex;
+        width: 100px;
+        margin-top: 2px;
+        margin-right: 200px;
+        transition: 0.5s;
+    }
+    #buscar{
+        font-size: 8pt;
+        width: 100px;
+    }
+    .países {
+        max-width: 300px;
+        grid-template-columns: repeat(1, 1fr);
+        transition: 0.5s;
+    }
+    #ordenar{
+        font-size: 15pt;
+        transition: 0.5s;
+    }
+    #container-ordenacao {
+        margin-top: 50px;
+        margin-right: -10px;
+        transition: 0.5s;
+    }
+    .ordenados {
+        font-size: 11pt;
+        width: 100px;
+        transition: 0.5s;
+    }
+    .ordenados:hover{
+        font-size: 11pt;
+        transition: 0.5s;
+    }
+    .filtrado{
+        font-size: 11pt;
+        width: 100px;
+        transition: 0.5s;
+    }
+    .filtrado:hover{
+        font-size: 11pt;
+        transition: 0.5s;
+    }
+    .regioes{
+        width: 100px;
+    }
+    .sub-regioes{
+        font-size: 11pt;
+        width: 100px;
+    }
+    .sub-regioes:hover{
+        font-size: 11pt;
+    }
+    .sub-america{
+        width: 100px;
+    }
+    .sub-africa{
+        width: 100px;
+    }
+    .sub-europa{
+        width: 100px;
+    }
+    .sub-asia{
+        width: 100px;
+    }
+    .oceania{
+        width: 100px;
+    }
+    .tamanho-populacao{
+        font-size: 10pt;
+        width: 100px;
+    }
+    .populacao{
+        font-size: 11pt;
+        width: 100px;
+        transition: 0.5s;
+    }
+    .area-pais{
+        font-size: 11pt;
+        width: 100px;
+        transition: 0.5s;
+    }
+    #container-filtrar {
+        margin-top: 50px;
+        margin-right: -215px;
+        transition: 0.5s;
+    }
+    #filtrar{
+        font-size: 14pt;
+        width: 100px;
+    }
+    #resetar{
+        width: 200px;
+        margin-top: 5px;
+        margin-left: 745px;
+        transition: 0.5s;
+    }
+    .paginas{
+        justify-content: center;
+        transition: 0.5s;
+    }
 }

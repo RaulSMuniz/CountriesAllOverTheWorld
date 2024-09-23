@@ -89,7 +89,7 @@ document.getElementById('form').addEventListener('submit', (event) => {
     );
     if (paisBuscado.length === 0){
         input.value = '';
-        input.placeholder = 'País não encontrado ou inválido.';
+        input.placeholder = 'País inválido.';
     } else {
         input.value = '';
         paginaAtual = 1;
