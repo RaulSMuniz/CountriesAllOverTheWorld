@@ -75,7 +75,7 @@ const obterPaises = (país) => { // Cria o HTML com as informações gerais da A
 };
 
 // Abaixo está a função para buscar os países pelo nome
-document.getElementById('form').addEventListener('submit', (event) => {
+document.getElementById('form').addEventListener('input', (event) => {
     // Impede a página de recarregar quando buscar um valor.
     event.preventDefault();
     // Armazena o input
@@ -85,20 +85,26 @@ document.getElementById('form').addEventListener('submit', (event) => {
     // Busca em window.paisesOriginais o pais escolhido.
     // Nota: compara apenas letras minúsculas, previnindo erro de 'case sensivity'.
     const paisBuscado = paisesFiltrados.length > 0 ? paisesFiltrados : window.paisesOriginais.filter(
-        pais => pais.name.common.toLowerCase() == paisEscolhido || pais.translations.por.common.toLowerCase() == paisEscolhido
+        pais => pais.name.common.toLowerCase().includes(paisEscolhido) || pais.translations.por.common.toLowerCase().includes(paisEscolhido)
     );
-    if (paisBuscado.length === 0){
-        input.value = '';
-        input.placeholder = 'País inválido.';
+
+    if (paisEscolhido === '') {
+        mostrarPaises(window.paisesOriginais);
+        atualizarPaginacao(window.paisesOriginais);
+        return;
+    }
+    if (paisBuscado.length === 0) {
+        paginaAtual = 1;
+        mostrarPaises([]);
+        atualizarPaginacao([]);
     } else {
-        input.value = '';
         paginaAtual = 1;
         mostrarPaises(paisBuscado);
         atualizarPaginacao(paisBuscado);
     };
     setTimeout(() => {
-            input.placeholder = 'Buscar País.';
-        }, 2000);
+        input.placeholder = 'Buscar País.';
+    }, 2000);
 });
 
 // Abaixo estão todas as funções sobre o menu de ordenação
@@ -159,12 +165,12 @@ function mostrarArea() {
 
 function fecharArea() {
     const fechar = document.getElementsByClassName('area-pais');
-    for (let i = 0; i < fechar.length; i++){
+    for (let i = 0; i < fechar.length; i++) {
         fechar[i].style.display = 'none';
     };
 };
 
-function ordenarPaises() { 
+function ordenarPaises() {
     const valorOrdenacao = document.querySelector('.ordenados.selecionado, .populacao.selecionado, .area-pais.selecionado')?.getAttribute('value');
     if (!valorOrdenacao) return;
 
@@ -196,7 +202,7 @@ function ordenarPaises() {
     // Exibe os países ordenados (filtrados ou não)
     mostrarPaises(paisesParaOrdenar);
     // Atualiza a paginação com base nos países ordenados
-    atualizarPaginacao(paisesParaOrdenar); 
+    atualizarPaginacao(paisesParaOrdenar);
 };
 
 
@@ -460,7 +466,7 @@ function filtrarTamanhoPopulacao() { // Função para filtrar por interavalos de
 };
 
 // Abaixo está a função que reseta todos os filtros/ordenações
-function resetarFiltros(){
+function resetarFiltros() {
     window.history.go(0);
 };
 
