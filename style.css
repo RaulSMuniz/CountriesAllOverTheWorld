@@ -269,6 +269,7 @@ body::-webkit-scrollbar {
 .oceania {
     /* Estiliza a opção oceania */
     font-size: 12pt;
+    font-weight: 600;
     display: none;
     flex-direction: column;
     justify-content: center;
