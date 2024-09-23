@@ -1,10 +1,9 @@
 body {
     /* Define a estrutura básica de Body (reset)*/
     box-sizing: border-box;
-    font-family: "Titillium Web", sans-serif;
     margin: 0;
     padding: 0;
-    background-color: antiquewhite;
+    background-color: rgb(12, 12, 12);
     overflow-y: scroll;
     overflow-x: hidden;
 }
@@ -16,11 +15,15 @@ body::-webkit-scrollbar {
 
 #header {
     /* Título da Aplicação Web */
+    font-family: "Raleway";
     margin: 0;
-    color: rgb(202, 93, 93);
-    background-color: rgb(255, 225, 186);
+    color: rgb(218, 218, 218);
+    background-color: rgb(48, 48, 48);
     text-align: center;
     padding: 10px;
+}
+.nome-pais{
+    font-family: "Raleway";
 }
 
 .info-pais {
@@ -35,12 +38,12 @@ body::-webkit-scrollbar {
 
 #ordenar {
     /* Estiliza o span que contém 'Ordenar Por' */
-    width: 100px;
-    height: 50px;
-    font-size: 16pt;
-    background-color: rgb(231, 224, 224);
-    color: rgb(84, 97, 107);
-    border: 1px 1px 0 1px solid rgb(219, 212, 212);
+    width: 150px;
+    height: 40px;
+    font-size: 18pt;
+    background-color: rgb(238, 238, 238);
+    border: 1px solid rgb(209, 209, 200);
+    color: rgb(48, 48, 48);
     border-radius: 5px 5px 0 0;
     padding: 0 10px 0 10px;
     transition: 0.5s ease-in-out;
@@ -48,8 +51,8 @@ body::-webkit-scrollbar {
 
 #ordenar:hover {
     /* Estiliza o que ocorrerá quando o usuário passar o mouse por cima de 'Ordenar Por' */
-    background-color: rgb(218, 208, 208);
-    border-color: rgb(179, 166, 166);
+    background-color: rgb(189, 189, 189);
+    border-color: rgb(209, 209, 200);
     transition: 0.5s ease-in-out;
     cursor: pointer;
 }
@@ -131,10 +134,9 @@ body::-webkit-scrollbar {
     border: 1px solid rgb(180, 180, 180);
     border-style: none;
     border-radius: 5px;
-    width: fit-content;
-    height: 0;
     padding: 1px;
     margin-right: 470px;
+    margin-top: 7px;
     transition: 0.5s;
 }
 
@@ -147,6 +149,7 @@ body::-webkit-scrollbar {
     width: fit-content;
     padding: 1px;
     height: 0;
+    margin-top: 5px;
     margin-right: 730px;
     z-index: 10;
 }
@@ -181,19 +184,19 @@ body::-webkit-scrollbar {
     flex-direction: column;
     justify-content: center;
     width: 140px;
-    height: fit-content;
+    height: 30px;
     font-size: 16pt;
-    background-color: rgb(231, 224, 224);
-    color: rgb(84, 97, 107);
-    border: 1px 1px 0 1px solid rgb(219, 212, 212);
+    background-color: rgb(238, 238, 238);
+    border: 1px solid rgb(209, 209, 200);
+    color: rgb(48, 48, 48);
     border-radius: 5px 5px 0 0;
     transition: 0.5s ease-in-out;
 }
 
 #filtrar:hover {
     /* Estiliza o que ocorre ao passar o mouse por cima de 'Filtrar' */
-    background-color: rgb(218, 208, 208);
-    border-color: rgb(179, 166, 166);
+    background-color: rgb(189, 189, 189);
+    border-color: rgb(209, 209, 200);
     transition: 0.5s ease-in-out;
     cursor: pointer;
 }
@@ -203,19 +206,22 @@ body::-webkit-scrollbar {
     position: absolute;
     font-size: 16pt;
     width: 140px;
-    background-color: rgb(231, 224, 224);
-    color: rgb(84, 97, 107);
-    border: 1px 1px 0 1px solid rgb(219, 212, 212);
+    height: 30px;
+    text-align: center;
+    background-color: rgb(238, 238, 238);
+    border: 1px solid rgb(209, 209, 200);
+    color: rgb(48, 48, 48);
     border-radius: 5px 5px 0 0;
     transition: 0.5s ease-in-out;
     padding: 1px;
     margin-left: 510px;
+    margin-top: 5px;
 }
 
 #resetar:hover {
     /* Estiliza o que ocorre ao passar o mouse por cima de 'Resetar'*/
-    background-color: rgb(218, 208, 208);
-    border-color: rgb(179, 166, 166);
+    background-color: rgb(189, 189, 189);
+    border-color: rgb(209, 209, 200);
     cursor: pointer;
     transition: 0.5s ease-in-out;
 }
@@ -432,35 +438,36 @@ body::-webkit-scrollbar {
 
 #buscar-países::placeholder {
     /* Placeholder do Input de Texto */
-    color: rgb(138, 138, 138);
+    color: rgb(95, 95, 95);
     text-align: center;
 }
 
 .países {
     /* Listagem dos Países na Aplicação */
     max-width: 1450px;
-    margin: 20px auto;
+    margin: 15px auto;
     margin-bottom: 5px;
     display: grid;
-    gap: 15px;
+    gap: 10px;
     grid-template-columns: repeat(3, 1fr);
 }
 
 .pais-info {
     /* Informações internas da Listagem dos Países */
-    border: 1px solid rgb(224, 194, 154);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border: 1px solid rgb(255, 255, 255);
     border-radius: 5px;
-    background-color: rgb(255, 225, 179);
+    background-color: rgb(29, 29, 29);
     text-align: center;
-    color: rgb(94, 0, 0);
+    color: whitesmoke;
     padding: 15px;
     transition: 0.5s;
 }
 
 .pais-info:hover {
     /* Estiliza o que ocorre ao passar o mouse por esse conteúdo */
-    background-color: rgb(255, 207, 135);
-    color: rgb(63, 15, 15);
+    background-color: rgb(61, 61, 61);
+    color: rgb(212, 212, 212);
     cursor: pointer;
     transition: 0.5s;
 }
@@ -475,12 +482,13 @@ body::-webkit-scrollbar {
 
 .pais-unico {
     /* Estiliza o país listado em 'pais.html' */
-    border: 1px solid rgb(224, 194, 154);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     width: 368px;
+    border: 1px solid rgb(255, 255, 255);
     border-radius: 5px;
-    background-color: rgb(255, 225, 179);
+    background-color: rgb(29, 29, 29);
     text-align: center;
-    color: rgb(94, 0, 0);
+    color: whitesmoke;
     padding: 15px;
 }
 
@@ -490,40 +498,32 @@ body::-webkit-scrollbar {
     flex-direction: row;
     border: 1px solid;
     border-radius: 5px;
-    background-color: rgb(231, 224, 224);
-    color: rgb(84, 97, 107);
+    background-color: rgb(29, 29, 29);
+    color: rgb(255, 255, 255);
     margin: 10px auto;
     transition: 0.5s;
 }
-
-#voltar:hover {
-    /* Estiliza o que ocorre ao passar o mouse por cima de 'Voltar' */
-    background-color: rgb(218, 208, 208);
-    border-color: rgb(179, 166, 166);
-    transition: 0.5s;
+#voltar:hover{
+    background-color: rgb(53, 53, 53);
+    border: 1px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
 }
 
 a {
     /* Estiliza o link de redirecionamento */
+    font-family: "Raleway";
     display: flex;
     width: 380px;
     height: 50px;
     font-size: 14pt;
     justify-content: center;
     align-items: center;
-    background-color: rgb(231, 224, 224);
-    color: rgb(84, 97, 107);
+    font-size: 18pt;
+    color: rgb(255, 255, 255);
     text-decoration: none;
     transition: 0.5s;
 }
 
-a:hover {
-    /* Estiliza o que ocorre ao passar o mouse por cima do link redirecionamento */
-    font-size: 18pt;
-    background-color: rgb(218, 208, 208);
-    border-color: rgb(179, 166, 166);
-    transition: 0.5s;
-}
 
 .bandeiras {
     /* Definição de tamanho e posição para as Bandeiras dos Países */
@@ -541,29 +541,33 @@ a:hover {
 
 .paginas span {
     /* Estiliza a quantidade de páginas */
-    color: rgb(94, 0, 0);
-    font-weight: 700;
+    color: rgb(255, 255, 255);
+    font-family: "Raleway";
+    font-size: 18pt;
+    font-weight: 600;
 }
 
 .paginas button {
     /* Estiliza o botão anterior e próximo */
     font-size: 18pt;
+    font-family: "Raleway";
+    font-weight: 400;
     margin-top: 0;
     margin: 10px;
     width: 500px;
     height: 50px;
-    background-color: rgb(209, 209, 200);
-    border: 1px solid rgb(209, 209, 200);
+    background-color: rgb(29, 29, 29);
+    border: 1px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     border-radius: 5px;
-    color: rgb(84, 97, 107);
     transition: 0.5s;
 }
 
 .paginas button:hover {
     /* Estiliza o que ocorre ao passar o mouse por cima dos botões */
-    background-color: rgb(190, 190, 190);
-    border-color: rgb(190, 190, 190);
-    color: rgb(67, 77, 85);
+    background-color: rgb(53, 53, 53);
+    border: 1px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     cursor: pointer;
     transition: 0.5s;
 }
@@ -578,13 +582,13 @@ a:hover {
     }
 
     #ordenar {
-        font-size: 16pt;
+        font-size: 19pt;
         padding: 0 10px 0 10px;
         transition: 0.5s;
     }
-
+    
     #container-ordenacao {
-        margin-right: 460px;
+        margin-right: 470px;
         transition: 0.5s;
     }
 
@@ -612,7 +616,7 @@ a:hover {
     }
 
     #container-filtrar {
-        margin-right: 710px;
+        margin-right: 730px;
         transition: 0.5s;
     }
 
@@ -646,13 +650,13 @@ a:hover {
     }
 
     #ordenar {
-        font-size: 16pt;
+        font-size: 19pt;
         padding: 0 10px 0 10px;
         transition: 0.5s;
     }
 
     #container-ordenacao {
-        margin-right: 460px;
+        margin-right: 470px;
         transition: 0.5s;
     }
 
@@ -680,7 +684,7 @@ a:hover {
     }
 
     #container-filtrar {
-        margin-right: 710px;
+        margin-right: 730px;
         transition: 0.5s;
     }
 
@@ -733,6 +737,7 @@ a:hover {
 
     .países {
         max-width: 300px;
+        margin-top: 40px;
         grid-template-columns: repeat(1, 1fr);
         transition: 0.5s;
     }
@@ -805,13 +810,13 @@ a:hover {
     }
 
     #container-filtrar {
-        margin-top: 45px;
-        margin-right: -100px;
+        margin-top: 50px;
+        margin-right: -110px;
         transition: 0.5s;
     }
 
     #container-ordenacao {
-        margin-top: 45px;
+        margin-top: 55px;
         margin-right: 200px;
         transition: 0.5s;
     }
@@ -824,7 +829,7 @@ a:hover {
     #resetar {
         width: 140px;
         margin-top: 5px;
-        margin-left: 160px;
+        margin-left: 170px;
         transition: 0.5s;
     }
 
@@ -839,3 +844,13 @@ a:hover {
         transition: 0.5s;
     }
 }
+
+/* Abaixo estão as fontes utilizadas */
+
+.raleway {
+  font-family: "Raleway";
+  font-weight: normal;
+  font-style: normal;
+}
+
+  

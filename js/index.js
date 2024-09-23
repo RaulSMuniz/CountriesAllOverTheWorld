@@ -113,7 +113,7 @@ document.getElementById('form').addEventListener('input', (event) => {
         atualizarPaginacao(paisBuscado);
     };
     setTimeout(() => {
-        input.placeholder = 'Buscar País.';
+        input.placeholder = 'Buscar País';
     }, 2000);
 });
 
