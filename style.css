@@ -22,11 +22,13 @@ body::-webkit-scrollbar {
     text-align: center;
     padding: 10px;
 }
-.info-pais{
+
+.info-pais {
     text-align: left;
     margin-left: 20px;
 }
-.info-geral{
+
+.info-geral {
     text-align: left;
     margin-left: 60px;
 }
@@ -619,6 +621,10 @@ a:hover {
         justify-content: center;
         transition: 0.5s;
     }
+
+    .paginas button {
+        width: 450px;
+    }
 }
 
 /* Responsivo para Tablet */
@@ -629,7 +635,8 @@ a:hover {
         grid-template-columns: repeat(2, 1fr);
         transition: 0.5s;
     }
-    .info-pais{
+
+    .info-pais {
         text-align: left;
         margin-left: 45px;
         transition: 0.5s;
@@ -696,14 +703,17 @@ a:hover {
         max-width: 300px;
         transition: 0.5s;
     }
-    .info-pais{
+
+    .info-pais {
         text-align: left;
         margin-left: 10px;
     }
-    .info-geral{
+
+    .info-geral {
         text-align: left;
         margin-left: 35px;
     }
+
     a {
         width: 280px;
         transition: 0.5s;
