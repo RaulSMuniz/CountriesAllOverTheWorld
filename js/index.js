@@ -138,14 +138,13 @@ function mostrarOrdenacao() { // Função para mostrar o menu de ordenação;
 };
 
 function fecharOrdenacao() { // Função para fechar o menu de ordenação;
-    const fechar = document.getElementsByClassName('ordenados');
-    for (let i = 0; i < fechar.length; i++) {
-        fechar[i].style.display = 'none';
-    };
-    clicar = false; // desabilita o click
-    setTimeout(() => {
-        clicar = true;
-    }, 500); // após 0.5s, o usuário pode voltar a clicar
+    setTimeout(() => { // Fecha o menu após 3 segundos
+        const fechar = document.getElementsByClassName('ordenados');
+        for (let i = 0; i < fechar.length; i++) {
+            fechar[i].style.display = 'none';
+        };
+    }, 2000);
+
 };
 function mostrarPopulacao() { // Função para mostrar opção de população crescente ou decrescente
     const mostrar = document.getElementsByClassName('populacao');
@@ -189,7 +188,7 @@ function fecharArea() { // Função para fechar a opção de área crescente ou 
     };
 };
 
-function ordenarPaises() {
+function ordenarPaises() { // Função para ordenar os países por nome, população ou área
     const valorOrdenacao = document.querySelector('.ordenados.selecionado, .populacao.selecionado, .area-pais.selecionado')?.getAttribute('value');
     if (!valorOrdenacao) return; // se não tiver algo selecionado, não faz nada
 
@@ -234,10 +233,13 @@ function mostrarFiltros() { // Mostra o menu de filtros
     };
 };
 function fecharFiltros() { // Fecha o menu de filtros
-    const fechar = document.getElementsByClassName('filtrado');
-    for (let i = 0; i < fechar.length; i++) {
-        fechar[i].style.display = 'none';
-    };
+    setTimeout(() => { // Fecha o menu de filtros após 3 segundos
+        const fechar = document.getElementsByClassName('filtrado');
+        for (let i = 0; i < fechar.length; i++) {
+            fechar[i].style.display = 'none';
+        };
+    }, 2000);
+
 };
 
 function mostrarFiltroReg() { // Mostra o menu de regiões (continentes)
