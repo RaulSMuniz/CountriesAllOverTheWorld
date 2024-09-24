@@ -16,6 +16,7 @@ body::-webkit-scrollbar {
 #header {
     /* Título da Aplicação Web */
     font-family: "Raleway";
+    font-weight: 600;
     margin: 0;
     color: rgb(218, 218, 218);
     background-color: rgb(48, 48, 48);
@@ -25,14 +26,21 @@ body::-webkit-scrollbar {
 
 .nome-pais {
     font-family: "Raleway";
+    font-weight: 400;
 }
 
 .info-pais {
+    font-family: "Raleway";
+    font-weight: 500;
+    font-size: 15pt;
     text-align: left;
     margin-left: 20px;
 }
 
 .info-geral {
+    font-family: "Raleway";
+    font-weight: 500;
+    font-size: 15pt;
     text-align: left;
     margin-left: 60px;
 }
@@ -429,7 +437,8 @@ body::-webkit-scrollbar {
 #buscar-países {
     /* Input de Texto */
     width: 350px;
-    height: 35px;
+    height: 30px;
+    margin-top: 5px;
     border: 1px solid;
     font-size: 15px;
     background-color: rgb(241, 241, 241);
@@ -746,7 +755,7 @@ a {
 
     .ordenados {
         font-size: 11pt;
-        width: 100px;
+        width: 96px;
         transition: 0.5s;
     }
 
@@ -801,13 +810,13 @@ a {
 
     .populacao {
         font-size: 11pt;
-        width: 200px;
+        width: 95px;
         transition: 0.5s;
     }
 
     .area-pais {
         font-size: 14pt;
-        width: 100px;
+        width: 95px;
         transition: 0.5s;
     }
 
@@ -818,7 +827,7 @@ a {
     }
 
     #container-ordenacao {
-        margin-top: 55px;
+        margin-top: 54px;
         margin-right: 200px;
         transition: 0.5s;
     }
@@ -830,14 +839,14 @@ a {
 
     #resetar {
         width: 140px;
-        margin-top: 5px;
+        margin-top: 0.5px;
         margin-left: 170px;
         transition: 0.5s;
     }
 
     #ordenar {
         font-size: 16pt;
-        padding: 0 10px 0 10px;
+        padding: 2.5px 12px 2.5px 12px;
         transition: 0.5s;
     }
 
