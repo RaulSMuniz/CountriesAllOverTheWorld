@@ -17,7 +17,7 @@ Uma Aplicação Web que consome a API: 'RestCountries'.
 - JavaScript, HTML5 e CSS3.
 
 - <h2>Habilidades Desenvolvidas:</h2>
-- Para esse desafio, eu tive que aprender muitas coisas, pois a grande maioria das funcionalidades do projeto eram novas para mim. Eu acredito que minha paixão por aprender e evoluir como desenvolvedor foi o que me impulsionou a me dedicar tanto ao longo dos mais de 8 dias projetando e desenvolvendo essa Aplicação Web.
+- Para esse desafio, eu tive que aprender muitas coisas, pois a grande maioria das funcionalidades do projeto eram novas para mim. Eu acredito que minha paixão por aprender e evoluir como desenvolvedor foi o que me impulsionou a me dedicar tanto ao longo dos dias que gastei projetando, desenvolvendo e aperfeiçoando essa Aplicação Web.
 - Neste projeto, pude desenvolver várias habilidades novas, sendo a mais importante a habilidade de requisitar e manipular as informações de uma API.
 - Eu pude consolidar minhas habilidades criativas para projetar um site criativo, mas minimalista, com um design simples e intuitivo.
 - Minhas habilidades com arrow functions e funções anônimas foram desenvolvidas e consolidadas. 
