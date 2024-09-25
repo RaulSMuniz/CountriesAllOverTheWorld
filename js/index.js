@@ -72,7 +72,7 @@ const atualizarPaginacao = (paises = paisesFiltrados.length > 0 ? paisesFiltrado
 const obterPaises = (país) => { // Cria o HTML com as informações gerais da Aplicação Web;
     return `
         <div class="pais-info" nome-ingles="${país.name.common}">
-            <h2 class="nome-pais">${país.translations.por.common}</h2>
+            <h2 class="nome-pais">${país.name.common}</h2>
             <div class="info-pais">
                 <img src='${país.flags.png}' class="bandeiras"></img>
                 <p>Capital: ${país.capital ? país.capital : 'None'}</p>
