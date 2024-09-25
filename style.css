@@ -851,7 +851,7 @@ a {
 
     #container-filtrar {
         margin-top: 50px;
-        margin-right: -110px;
+        margin-right: -120px;
         transition: 0.5s;
     }
 
@@ -863,7 +863,7 @@ a {
 
     #filtrar {
         font-size: 14pt;
-        width: 200px;
+        width: 190px;
     }
 
     #resetar {
