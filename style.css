@@ -590,6 +590,11 @@ a {
 
 /* Responsivo para 4K */
 @media (min-width: 1440px) and (max-width: 2560px) {
+    #ordenar {
+        font-size: 19pt;
+        padding: 1px 10px 0 10px;
+        transition: 0.5s;
+    }
     .paises {
         max-width: 1240px;
         transition: 0.5s;
@@ -622,7 +627,7 @@ a {
 
     #ordenar {
         font-size: 19pt;
-        padding: 0 10px 0 10px;
+        padding: 1px 10px 0 10px;
         transition: 0.5s;
     }
 
