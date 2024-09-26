@@ -226,7 +226,6 @@ body::-webkit-scrollbar {
     color: rgb(48, 48, 48);
     border-radius: 5px 5px 0 0;
     transition: 0.5s ease-in-out;
-    padding: 1px;
     margin-left: 510px;
     margin-top: 5px;
 }
