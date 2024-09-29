@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     const obterPais = (país) => { // Cria o HTML 
         let idiomas = Object.values(país.languages || {}).join(', ') || 'N/A';
-        let moedas = país.currencies ? Object.values(país.currencies).map(moeda => `(${moeda.symbol}) ${moeda.name}`).join(', ') : 'N/A';
+        let moedas = país.currencies ? Object.values(país.currencies).map(moeda => `[${moeda.symbol}] ${moeda.name}`).join(', ') : 'N/A';
         let idd = país.idd ? país.idd.root + (país.idd.suffixes.length > 0 ? `${país.idd.suffixes.join(', ')}` : '') : 'N/A';
 
         return `

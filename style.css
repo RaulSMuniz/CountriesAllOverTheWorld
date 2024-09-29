@@ -24,6 +24,7 @@ body::-webkit-scrollbar {
     background-color: rgb(48, 48, 48);
     padding: 10px;
 }
+
 #titulo {
     margin: auto;
 }
@@ -31,22 +32,30 @@ body::-webkit-scrollbar {
 .nome-pais {
     font-family: "Raleway";
     font-weight: 400;
+    padding: 0 0 5px 0;
+    border-bottom: 1px solid rgb(209, 209, 200);
 }
 
 .info-pais {
     font-family: "Raleway";
     font-weight: 500;
     font-size: 15pt;
+    margin: auto;
     text-align: left;
-    margin-left: 20px;
 }
 
 .info-geral {
     font-family: "Raleway";
     font-weight: 500;
+    width: 250px;
     font-size: 15pt;
+    margin: auto;
     text-align: left;
-    margin-left: 60px;
+    transition: 0.5s;
+}
+
+#clique {
+    border-top: 2px solid rgb(209, 209, 200);
 }
 
 #ordenar {
@@ -595,6 +604,7 @@ a {
         padding: 1px 10px 0 10px;
         transition: 0.5s;
     }
+
     .paises {
         max-width: 1240px;
         transition: 0.5s;
@@ -872,6 +882,7 @@ a {
 
     #resetar {
         width: 140px;
+        height: 32px;
         margin-top: 0.5px;
         margin-left: 170px;
         transition: 0.5s;

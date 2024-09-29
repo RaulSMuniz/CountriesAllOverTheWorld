@@ -78,11 +78,14 @@ const obterPaises = (país) => { // Cria o HTML com as informações gerais da A
                 <p>Capital: ${país.capital ? país.capital : 'None'}</p>
                 <p>Região: ${país.region}</p>
             </div>
+            <div id="clique">
+                <p>Clique aqui para mais informações</p>
+            </div>
         </div>
     `;
 };
 
-// Abaixo está a função para buscar os países pelo nome
+// Abaixo estão as funções para buscar os países pelo nome
 document.getElementById('form').addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
         event.preventDefault();
