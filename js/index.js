@@ -94,36 +94,32 @@ document.getElementById('form').addEventListener('keydown', (event) => {
 });
 
 document.getElementById('form').addEventListener('input', (event) => {
-    // Impede a página de recarregar quando buscar um valor.
     event.preventDefault();
-    // Armazena o input
-    const input = document.getElementById('buscar-países');
     // Armazena o valor do input em letras minúsculas e sem espaços extras.
-    const paisEscolhido = input.value.trim().toLowerCase();
+    const input = document.getElementById('buscar-países');
+
     // Busca em window.paisesOriginais o pais escolhido.
     // Nota: compara apenas letras minúsculas, previnindo erro de 'case sensivity'.
-    const paisBuscado = paisesFiltrados.length > 0 ? paisesFiltrados : window.paisesOriginais.filter(
-        pais => pais.name.common.toLowerCase().includes(paisEscolhido) || pais.translations.por.common.toLowerCase().includes(paisEscolhido)
+    const paisEscolhido = input.value.trim().toLowerCase();
+    paisesFiltrados = window.paisesOriginais.filter(pais => 
+        pais.name.common.toLowerCase().includes(paisEscolhido) || 
+        pais.translations.por.common.toLowerCase().includes(paisEscolhido)
     );
 
     if (paisEscolhido === '') {
+        paisesFiltrados = [];
         mostrarPaises(window.paisesOriginais);
         atualizarPaginacao(window.paisesOriginais);
-        return;
-    }
-    if (paisBuscado.length === 0) {
+    } else if (paisesFiltrados.length === 0) {
         paginaAtual = 1;
         mostrarPaises([]);
         atualizarPaginacao([]);
     } else {
         paginaAtual = 1;
-        mostrarPaises(paisBuscado);
-        atualizarPaginacao(paisBuscado);
-    };
-    setTimeout(() => {
-        input.placeholder = 'Buscar País';
-    }, 2000);
+        ordenarPaises();  // Chama a função de ordenação após o filtro
+    }
 });
+
 
 // Abaixo estão todas as funções sobre o menu de ordenação
 function mostrarOrdenacao() { // Função para mostrar o menu de ordenação;
@@ -191,38 +187,27 @@ function fecharArea() { // Função para fechar a opção de área crescente ou 
     };
 };
 
-function ordenarPaises() { // Função para ordenar os países por nome, população ou área
+function ordenarPaises() { // Função para ordenar os países
     const valorOrdenacao = document.querySelector('.ordenados.selecionado, .populacao.selecionado, .area-pais.selecionado')?.getAttribute('value');
-    if (!valorOrdenacao) return; // se não tiver algo selecionado, não faz nada
+    if (!valorOrdenacao) return; // Se não houver algo selecionado, não faz nada
 
-    const paisesParaOrdenar = paisesFiltrados.length > 0 ? paisesFiltrados : window.paisesOriginais;
+    let paisesParaOrdenar = paisesFiltrados.length > 0 ? paisesFiltrados : window.paisesOriginais;
 
-    paisesParaOrdenar.sort((a, b) => {
+    paisesParaOrdenar.sort((a, b) => { // Ordena por nome, população e área
         if (valorOrdenacao === 'nome-pais') {
-            // Ordem Alfabética do nome comum;
-            paginaAtual = 1;
             return a.name.common.localeCompare(b.name.common);
         } else if (valorOrdenacao === 'populacao-crescente') {
-            // Ordenação crescente de população;
-            paginaAtual = 1;
             return a.population - b.population;
         } else if (valorOrdenacao === 'populacao-decrescente') {
-            // Ordem Decrescente de População;
-            paginaAtual = 1;
             return b.population - a.population;
         } else if (valorOrdenacao === 'area-pais-c') {
-            // Ordem Crescente da área;
-            paginaAtual = 1;
             return a.area - b.area;
         } else if (valorOrdenacao === 'area-pais-d') {
-            // Ordem Decrescente da área;
-            paginaAtual = 1;
             return b.area - a.area;
         };
     });
-    // Exibe os países ordenados (filtrados ou não)
+    // Mostra os países e atualiza a paginação
     mostrarPaises(paisesParaOrdenar);
-    // Atualiza a paginação com base nos países ordenados
     atualizarPaginacao(paisesParaOrdenar);
 };
 
@@ -449,45 +434,65 @@ function fecharFiltroP() { // Fecha o filtro de população
     };
 };
 
-function filtrarRegioes(regiao) { // Função para filtrar as regiões (continentes)
-    const paisesFiltrados = window.paisesOriginais.filter(pais => pais.region === regiao);
-    paginaAtual = 1;
-    mostrarPaises(paisesFiltrados);
-    atualizarPaginacao(paisesFiltrados);
+function filtrarRegioes(regiao) { // Função para filtrar continentes
+    paisesFiltrados = window.paisesOriginais.filter(pais => pais.region === regiao);
+    if (paisesFiltrados.length === 0) {
+        mostrarPaises([]);
+        atualizarPaginacao([]);
+    } else {
+        ordenarPaises();  // Ordena a lista filtrada
+        mostrarPaises(paisesFiltrados);
+        atualizarPaginacao(paisesFiltrados);
+    };
 };
 
-function filtrarSubRegioes(subRegiao) { // Função para filtrar por sub-regiões de continente;
-    const paisesFiltrados = window.paisesOriginais.filter(pais => pais.subregion === subRegiao);
-    paginaAtual = 1;
-    mostrarPaises(paisesFiltrados);
-    atualizarPaginacao(paisesFiltrados);
+
+function filtrarSubRegioes(subRegiao) { // Função para ordenar sub-continentes
+    paisesFiltrados = window.paisesOriginais.filter(pais => pais.subregion === subRegiao);
+    if (paisesFiltrados.length === 0) {
+        mostrarPaises([]);
+        atualizarPaginacao([]);
+    } else {
+        paginaAtual = 1;
+        ordenarPaises();  // Ordena a lista filtrada
+        mostrarPaises(paisesFiltrados);
+        atualizarPaginacao(paisesFiltrados);
+    };
 };
 
-// Filtro por intervalo de população finalizado;
-function filtrarTamanhoPopulacao() { // Função para filtrar por interavalos de população;
+
+
+function filtrarTamanhoPopulacao() { // Filtro por intervalo de população;
     const valorTamanhoPopulacao = document.querySelector('.tamanho-populacao.selecionado')?.getAttribute('value');
     let intervaloPopulacao = {};
     if (!valorTamanhoPopulacao) return;
 
-
     if (valorTamanhoPopulacao === 'menor-1m') {
-        intervaloPopulacao = { min: 0, max: 1000000 }; // menos de 1 milhão
+        intervaloPopulacao = { min: 0, max: 1000000 }; 
     } else if (valorTamanhoPopulacao === 'menor-10m') {
-        intervaloPopulacao = { min: 1000000, max: 10000000 }; // menos de 10 milhões
+        intervaloPopulacao = { min: 1000000, max: 10000000 }; 
     } else if (valorTamanhoPopulacao === 'menor-100m') {
-        intervaloPopulacao = { min: 10000000, max: 100000000 }; // menos de 100 milhões
+        intervaloPopulacao = { min: 10000000, max: 100000000 }; 
     } else if (valorTamanhoPopulacao === 'maior-100m') {
-        intervaloPopulacao = { min: 100000000 }; // mais de 100 milhões
-    };
+        intervaloPopulacao = { min: 100000000 }; 
+    }
 
-    const paisesFiltrados = window.paisesOriginais.filter(pais => {
+    paisesFiltrados = window.paisesOriginais.filter(pais => {
         return pais.population >= intervaloPopulacao.min &&
             (intervaloPopulacao.max ? pais.population <= intervaloPopulacao.max : true);
     });
-    paginaAtual = 1;
-    mostrarPaises(paisesFiltrados);
-    atualizarPaginacao(paisesFiltrados);
+
+    if (paisesFiltrados.length === 0) {
+        mostrarPaises([]);
+        atualizarPaginacao([]);
+    } else {
+        paginaAtual = 1;
+        ordenarPaises();  // Ordena a lista filtrada
+        mostrarPaises(paisesFiltrados);
+        atualizarPaginacao(paisesFiltrados);
+    };
 };
+
 
 // Abaixo está a função que reseta todos os filtros/ordenações
 function resetarFiltros() {

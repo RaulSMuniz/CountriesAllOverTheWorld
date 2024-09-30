@@ -476,7 +476,7 @@ body::-webkit-scrollbar {
 
 .pais-info {
     /* Informações internas da Listagem dos Países */
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
     border: 1px solid rgb(255, 255, 255);
     border-radius: 5px;
     background-color: rgb(29, 29, 29);
@@ -605,6 +605,10 @@ a {
         transition: 0.5s;
     }
 
+    .ordenados{
+        width: 105px;
+    }
+
     .paises {
         max-width: 1240px;
         transition: 0.5s;
@@ -716,7 +720,7 @@ a {
 
     .ordenados {
         font-size: 11pt;
-        width: 100px;
+        width: 105px;
         transition: 0.5s;
     }
 
@@ -809,17 +813,17 @@ a {
 
     .filtrado {
         font-size: 11pt;
-        width: 200px;
+        width: 192px;
         transition: 0.5s;
     }
 
     .regioes {
-        width: 200px;
+        width: 192px;
     }
 
     .sub-regioes {
         font-size: 11pt;
-        width: 200px;
+        width: 192px;
     }
 
     .sub-regioes:hover {
