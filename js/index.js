@@ -116,6 +116,8 @@ document.getElementById('form').addEventListener('input', (event) => {
         atualizarPaginacao([]);
     } else {
         paginaAtual = 1;
+        mostrarPaises(paisesFiltrados);
+        atualizarPaginacao(paisesFiltrados);
         ordenarPaises();  // Chama a função de ordenação após o filtro
     }
 });
